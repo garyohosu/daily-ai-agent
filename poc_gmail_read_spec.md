@@ -1,4 +1,4 @@
-# poc_gmail_read.py 詳細仕様書
+# scripts/poc_gmail_read.py 詳細仕様書
 Project: バーチャル専門誌 日刊AIエージェント
 Phase: 0
 Status: Draft for Claude Code
@@ -7,7 +7,7 @@ Status: Draft for Claude Code
 
 ## 1. 目的
 
-`poc_gmail_read.py` は、Gmail に届いた Grok タスク通知メールを直接読めるかどうかを検証するための実証実験用スクリプトである。
+`scripts/poc_gmail_read.py` は、Gmail に届いた Grok タスク通知メールを直接読めるかどうかを検証するための実証実験用スクリプトである。
 
 本スクリプトの目的は、記事生成や公開ではなく、以下を確認することに限定する。
 
@@ -149,7 +149,8 @@ PoC の初期検索条件は以下とする。
 
 - From: `noreply@x.ai`
 - To: `garyohosu@gmail.com`
-- 件名または本文に `AI` `Grok` `バズ` のいずれか
+- 一次検索条件は `from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d`
+- 件名条件は必須にせず、必要なら `Claude Code` `AI` `Grok` `バズ` を補助条件に使う
 - 直近 7 日以内
 
 ### 8.2 Gmail 検索クエリ例
@@ -161,16 +162,19 @@ from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d
 
 ```text
 from:noreply@x.ai newer_than:7d
+from:noreply@x.ai subject:"Claude Code" newer_than:7d
 from:noreply@x.ai subject:AI newer_than:7d
 from:noreply@x.ai subject:Grok newer_than:7d
+from:noreply@x.ai subject:バズ newer_than:7d
 ```
 
 ### 8.3 検索戦略
 検索は次の順で行う。
 
-1. 厳しめ条件で検索
-2. 結果 0 件なら条件を少し緩めて再検索
-3. それでも 0 件なら失敗
+1. 一次検索条件 `from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d` で検索
+2. 結果 0 件なら `from:noreply@x.ai newer_than:7d` で再検索
+3. それでも 0 件なら件名補助条件（`Claude Code` `AI` `Grok` `バズ`）で再検索
+4. それでも 0 件なら失敗
 
 ### 8.4 取得件数
 - 最大 5 件まで取得する
@@ -382,7 +386,8 @@ HTML 本文しかない場合は、タグ除去してプレーンテキスト化
 daily-ai-agent/
   credentials.json
   token.json
-  poc_gmail_read.py
+  scripts/
+    poc_gmail_read.py
   logs/
   data/
     raw/
@@ -503,7 +508,7 @@ daily-ai-agent/
 
 以下の方針で実装すること。
 
-1. まずは単一ファイル `poc_gmail_read.py` として実装する
+1. まずは単一ファイル `scripts/poc_gmail_read.py` として実装する
 2. クラス化は不要、関数分割で可読性を確保する
 3. 型ヒントを付ける
 4. `if __name__ == "__main__": main()` を使う
@@ -512,7 +517,7 @@ daily-ai-agent/
 7. 記事生成や公開処理は入れない
 8. コード内コメントは必要最低限にする
 9. 実行に必要なパッケージ一覧を冒頭コメントまたは README 用に併記する
-10. 将来 `fetch_gmail.py` へ流用しやすい関数名にする
+10. 将来 `scripts/fetch_gmail.py` へ流用しやすい関数名にする
 
 ---
 
@@ -535,10 +540,11 @@ daily-ai-agent/
 
 この PoC 成功後は、以下へ接続する。
 
-- `fetch_gmail.py`
-- `parse_mail.py`
-- `normalize_items.py`
-- `compose_article.py`
+- `scripts/fetch_gmail.py`
+- `scripts/parse_mail.py`
+- `scripts/normalize_items.py`
+- `scripts/compose_article.py`
+上記はすべて `scripts/` 配下に置く前提とする。
 
 本スクリプトは、その最初の検証用である。
 
@@ -546,7 +552,7 @@ daily-ai-agent/
 
 ## 24. 完了条件
 
-以下を満たしたら `poc_gmail_read.py` 実装完了とする。
+以下を満たしたら `scripts/poc_gmail_read.py` 実装完了とする。
 
 - スクリプトがローカルで起動する
 - Gmail 認証が通る

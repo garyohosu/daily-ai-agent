@@ -66,7 +66,7 @@ graph TD
         Hero["最新記事セクション<br/>(最新日のタイトル・日付)"]
         TodaySummary["今日の総括<br/>(全体傾向の要約)"]
         TopicList["トピックダイジェスト (5-10件)<br/>(各記事へのアンカー)"]
-        ArchiveList["過去の記事一覧<br/>(逆時系列リスト)"]
+        ArchiveList["過去の記事一覧<br/>(逆時系列・最新20件まで表示)"]
 
         Hero --> TodaySummary
         TodaySummary --> TopicList
@@ -127,3 +127,29 @@ graph TD
   - テキスト: 濃いグレー
   - アクセント: AIを想起させる青や紫、またはコーディングエージェント風の緑
 - **レイアウト**: 読みやすさを重視した1カラム中心の構成（最大幅を制限）
+
+---
+
+## 6. アーカイブ表示方針
+
+- トップページには過去記事を最新 **20 件** まで表示する
+- 20 件を超える場合は `archives.html` またはカテゴリ別一覧ページへ誘導する
+- 記事数が 50 件を超えた段階で Jekyll の `paginate` プラグイン導入を検討する
+
+---
+
+## 7. OGP メタタグ仕様
+
+トップページおよび全記事ページに共通の OGP メタタグを `<head>` に出力する。
+実装場所は Jekyll の `docs/_layouts/default.html`。
+
+| タグ | 内容 |
+|------|------|
+| `og:title` | ページタイトル（サイト名または記事タイトル） |
+| `og:description` | ページ説明文（記事リード文またはサイト説明） |
+| `og:type` | 記事ページは `article`、それ以外は `website` |
+| `og:url` | 当該ページの正規 URL |
+| `og:image` | `{{ site.url }}{{ site.baseurl }}/assets/ogp/default.png`（共通デフォルト画像の絶対 URL） |
+
+- 記事ごとの専用 OGP 画像自動生成は Phase 2 以降とする
+- デフォルト画像ファイルは `docs/assets/ogp/default.png` に置く
