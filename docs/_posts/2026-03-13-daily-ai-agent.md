@@ -31,11 +31,15 @@ PRオープン時にClaudeがエージェントチームを自動派遣し、バ
 - **X ポスト**: [x.com/claudeai/status/2031088171262…](https://x.com/claudeai/status/2031088171262554195)
 - **関連リンク**: [claude.com/blog/code-review](https://claude.com/blog/code-review)
 
+*編集コメント: 信頼度が非常に高い。一次ソースとして参照価値が高い。*
+
 ### 2. Claude Code Voice Mode ロールアウト開始
 
 Claude Code内で音声モードが5%ユーザーから順次展開。/voice でトグル可能、ターミナル操作を声で行いタイピング速度の3倍以上に。 ...
 
 - **カテゴリ**: Claude Code
+
+*編集コメント: Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。*
 
 ---
 

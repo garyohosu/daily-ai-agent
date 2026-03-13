@@ -11,16 +11,17 @@ import json
 import logging
 import re
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime
 from email.utils import parsedate_to_datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 # ---- 設定 ---------------------------------------------------------------
 DATA_PROCESSED_DIR = Path("data/processed")
 POSTS_DIR          = Path("docs/_posts")
 LOGS_DIR           = Path("logs")
 
-JST = timezone(datetime.now(timezone.utc).astimezone().utcoffset())
+JST = ZoneInfo("Asia/Tokyo")
 
 
 # ---- ログ設定 -------------------------------------------------------------
@@ -199,6 +200,12 @@ def _topic_section(item: dict, idx: int) -> str:
             lines.append(f"- {m}")
         lines.append("")
 
+    # 編集コメント（1行、存在する場合のみ）
+    comment = _editorial_comment(item)
+    if comment:
+        lines.append(f"*編集コメント: {comment}*")
+        lines.append("")
+
     return "\n".join(lines)
 
 
@@ -212,6 +219,57 @@ def _shorten_url(url: str) -> str:
     if len(path) > 30:
         path = path[:30] + "…"
     return domain + path
+
+
+# ---- 編集コメント生成 ---------------------------------------------------
+_CATEGORY_COMMENTS: dict[str, str] = {
+    "Claude Code":        "Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。",
+    "Codex":              "Codex 関連。他エージェントとの比較検討に役立つかもしれない。",
+    "Devin":              "Devin の最新動向。AI エンジニアリングの前線を追う話題。",
+    "AI Agents":          "AI エージェント全般に影響しうるトピック。動向把握に。",
+    "Skills":             "Agent Skills 関連。実装者向けの具体的な情報。",
+    "Prompt Engineering": "プロンプト設計の改善ヒントになりうる話題。",
+    "Local LLM":          "ローカル LLM 活用に関心がある方向けの情報。",
+    "VS Code":            "VS Code ユーザーに直接関係する情報。拡張・設定の参考に。",
+    "Enterprise":         "企業導入・業務活用を検討中の方に参考になる事例。",
+    "Research":           "研究系のトピック。実用化には時間を要する可能性あり。",
+    "Workflow":           "開発ワークフロー改善のヒントになりうる話題。",
+}
+
+
+def _editorial_comment(item: dict) -> str | None:
+    """category / confidence / likes から短い編集コメントを 1 行生成する。"""
+    category   = item.get("category")
+    confidence = item.get("confidence")   # int or None
+    likes      = item.get("likes")        # int or None
+
+    # 公式発表 × 高バズ
+    if confidence is not None and confidence >= 90 and likes is not None and likes >= 5000:
+        return "公式発表かつ高エンゲージメント。本日最注目のトピック。"
+
+    # 高信頼度
+    if confidence is not None and confidence >= 90:
+        return "信頼度が非常に高い。一次ソースとして参照価値が高い。"
+
+    if confidence is not None and confidence >= 70:
+        return "比較的信頼度の高い情報。一次ソースの確認も推奨。"
+
+    # 高 Likes
+    if likes is not None and likes >= 10000:
+        return f"X で爆発的にバズった話題（Likes: {likes:,}）。業界全体に影響しうる動向。"
+
+    if likes is not None and likes >= 1000:
+        return f"X で多くの関心を集めた話題（Likes: {likes:,}）。注目度高め。"
+
+    # カテゴリベース
+    if category and category in _CATEGORY_COMMENTS:
+        return _CATEGORY_COMMENTS[category]
+
+    # 低信頼度の警告
+    if confidence is not None and confidence <= 40:
+        return "信頼度が低め。未確認情報の可能性あり、一次ソース確認を推奨。"
+
+    return None
 
 
 # ---- front matter 生成 --------------------------------------------------

@@ -28,12 +28,16 @@ METAがAIエージェント向けソーシャルネットワークMoltbookを買
 - **Likes**: 11,501
 - **X ポスト**: [x.com/Polymarket/status/20313682378…](https://x.com/Polymarket/status/2031368237837844530)
 
+*編集コメント: X で爆発的にバズった話題（Likes: 11,501）。業界全体に影響しうる動向。*
+
 ### 2. Anthropicのオーストラリア・ニュージーランド拡張発表
 
 Anthropicがシドニーに新オフィスを開設。アジア太平洋地域で4番目の拠点。
 
 - **Likes**: 2,365
 - **X ポスト**: [x.com/AnthropicAI/status/2031506214…](https://x.com/AnthropicAI/status/2031506214228828186)
+
+*編集コメント: X で多くの関心を集めた話題（Likes: 2,365）。注目度高め。*
 
 ### 3. GoogleのAlphaGo関連のAI進化の考察
 
