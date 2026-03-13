@@ -1,0 +1,14 @@
+credentials.json
+token.json
+client_secret_*.json
+__pycache__/
+*.pyc
+.env
+logs/*
+!logs/.gitkeep
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/draft/*
+!data/draft/.gitkeep
