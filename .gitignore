@@ -9,6 +9,7 @@ logs/*
 data/raw/*
 !data/raw/.gitkeep
 data/fetched_ids.json
+data/dedupe_index.json
 data/processed/*
 !data/processed/.gitkeep
 data/draft/*
