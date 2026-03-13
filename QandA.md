@@ -156,42 +156,42 @@ Version: 0.5
 ## Q24. スクリプト間のオーケストレーション方法は何か？
 **セクション**: 23
 **質問**: `fetch_gmail.py → parse_mail.py → normalize_items.py → dedupe_items.py → compose_article.py → publish_site.py` という複数スクリプトの実行順は、どう管理するか？Makefile・シェルスクリプト・単一の `main.py` のいずれを採用するか？Phase 1（ローカル手動実行）と Phase 2（GitHub Actions）で方式が変わる想定か？
-**回答**: Phase 1 では単一の `scripts/main.py` をオーケストレータとして採用し、各スクリプトを順に呼び出す（fetch → parse → normalize → dedupe → compose → publish）。補助的に Makefile またはシェルスクリプトを置いてもよいが、実行順序の正式定義元は `main.py` とする。Phase 2 で GitHub Actions を導入する場合も Actions から `main.py` を呼ぶ形を基本とし、実行順序定義を二重管理しない。
+**回答**: 正式な実行順序の定義元は `scripts/main.py` とする。`main.py` が `fetch_gmail.py → parse_mail.py → normalize_items.py → dedupe_items.py → compose_article.py → publish_site.py` を順に呼ぶ。Makefile は補助的に使ってよいが、実行順序の正本にはしない。
 
 ---
 
 ## Q25. draft扱い記事の保存先とフォロー手順は？
 **セクション**: 20.3
 **質問**: 「記事生成不可なら draft 扱い」とあるが、Section 23 のディレクトリ構成に `data/draft/` が存在しない。draft はどこに保存するか？また draft を確認・再処理する手順（誰がいつ何をするか）は定義しないか？
-**回答**: draft 扱い記事は `data/draft/` に JSON 形式で保存する。保存ファイル名は `YYYY-MM-DD_<message_id>.json` を正式採用とし、`message_id` が使えない場合のみ `YYYY-MM-DD-HHMMSS.json` を代替名とする。保存対象は失敗元データ・失敗理由・途中生成物・タイムスタンプとする。確認用 Markdown 草稿が生成できた場合は `docs/_drafts/` にも置いてよいが、正式保存先は `data/draft/`。再処理は運営者本人が draft を確認して原因修正後に再実行する。初期版では自動再処理は行わない。
+**回答**: draft は `data/draft/YYYY-MM-DD_<message_id>.json` に保存する。同日複数失敗でも上書きしない。必要なら確認用 Markdown 草稿を `docs/_drafts/` に置いてよいが、初期版の正本は JSON とする。
 
 ---
 
 ## Q26. `docs/` 配下の Jekyll 設定ファイルの扱いは？
 **セクション**: 23, Q10
 **質問**: `docs/` 配下のディレクトリ構成に `_config.yml` を置くか？Jekyll のビルドに必須のこのファイル（サイト名・baseurl・URL・パーマリンク設定等）はどこに置くか？また GitHub Pages のビルド対象ブランチ・ルートディレクトリ（`/` か `/docs` か `gh-pages` ブランチ等）はどれを採用するか？
-**回答**: 初期版は `docs/_config.yml` を必須とし、最低限 `title`・`description`・`baseurl`・`url`・`permalink` を定義する。GitHub Pages の公開方式は main ブランチの `/docs` を正式採用とする。`gh-pages` ブランチ方式や GitHub Actions デプロイは将来の別案とし、Section 23 のディレクトリ構成図も `docs/` 基準に統一する。
+**回答**: 公開方式は main ブランチの `/docs` を正式採用とする。Jekyll 設定ファイルは `docs/_config.yml` を必須とする。最低限 `title` `description` `url` `baseurl` `permalink` を定義する。
 
 ---
 
 ## Q27. 運用モード移行の判断基準は何か？
 **セクション**: 19
 **質問**: 手動→半自動→全自動への移行の基準が未定義。「十分安定した場合」とは具体的に何をもって判断するか（例: エラー率、連続稼働日数、品質確認回数、記事件数の閾値等）？
-**回答**: 移行基準を以下のとおり定義する。手動→半自動は「Phase 0 PoC 成功後、かつ 7 日以上の試験運用でメール取得・解析・記事草稿生成の成功率 90%以上」。半自動→全自動は「14 日以上の連続運用で重大エラー 0 件、記事品質レビューによる公開差し止め 1 件以下、かつ運営者が品質面で許容と判断」。この数値条件を Section 19 に追記する。
+**回答**: 手動 → 半自動は「Gmail 直読 PoC 成功後、7日以上の試験運用で取得・解析・草稿生成の成功率が 90%以上」とする。半自動 → 全自動は「14日以上の連続運用で重大エラー 0件、公開差し止め 1件以下」とする。曖昧な「十分安定した場合」は使わない。
 
 ---
 
 ## Q28. トップページのアーカイブ一覧件数とページネーション方針は？
 **セクション**: UI.md 3.1
 **質問**: トップページに「過去の記事一覧」を掲載する設計だが、表示件数の上限はあるか？記事が数十件・数百件に増えた場合、ページネーション（Jekyll の `paginate` プラグイン等）を導入するか？初期版での上限件数を定義するか？
-**回答**: 初期版はトップページのアーカイブ一覧を最新 20 件までとする。20 件を超える場合は `archives.html` またはカテゴリ別一覧ページへ誘導する。ページネーションは記事数が 50 件を超えた段階で Jekyll の `paginate` 導入を検討する。この件数上限を UI.md に追記する。
+**回答**: トップページのアーカイブ一覧は最新 20 件まで表示する。20 件を超える場合は `archives.html` へ誘導する。ページネーションは初期必須にせず、記事数 50 件超を目安に導入検討とする。
 
 ---
 
 ## Q29. OGPタグの設定方針は？
 **セクション**: UI.md 全体, Q22回答
 **質問**: Q22の回答で「OGP画像が自動で表示されるような仕組み（リンクカード等）は許容する」とあるが、UI.md にはOGPメタタグの仕様がない。Jekyll のテンプレートにOGPメタタグ（og:title, og:description, og:image等）を含めるか？含める場合はトップページのみか全記事ページ共通か？og:imageのデフォルト画像はどこに置くか？
-**回答**: 初期版はトップページおよび全記事ページに共通の OGP メタタグ（`og:title`・`og:description`・`og:type`・`og:url`）を設定する。`og:image` は `{{ site.url }}{{ site.baseurl }}/assets/ogp/default.png` の絶対 URL を出力し、画像ファイル自体は `docs/assets/ogp/default.png` に置く。記事ごとの専用 OGP 画像自動生成は Phase 2 以降とする。Jekyll テンプレート（`docs/_layouts/default.html`）の `<head>` に共通 OGP 出力ブロックを追加する。この仕様を UI.md に追記する。
+**回答**: 初期版ではトップページと記事ページに共通 OGP を設定する。最低限 `og:title` `og:description` `og:type` `og:url` `og:image` を出力する。`og:image` は相対パスではなく絶対 URL とし、`{{ site.url }}{{ site.baseurl }}/assets/ogp/default.png` を使う。
 
 ---
 
@@ -212,21 +212,21 @@ Version: 0.5
 ## Q30. GitHub Pages の公開ソースは `docs/` を使うのか？
 **セクション**: 23, Q26
 **質問**: GitHub Pages の branch source は通常 `/(root)` または `/docs` を前提にする。初期版では `docs/` を正式採用とするか、それとも GitHub Actions で別ディレクトリから公開するか？
-**回答**: 初期版では GitHub Pages の公開方式として main ブランチの `/docs` を正式採用とする。`site/` 構成を維持して GitHub Actions で公開する案は別案として保持するが、Phase 1 の簡素性を優先してまずは `/docs` 方式を採る。
+**回答**: GitHub Pages の標準公開方式に素直に合わせるため、初期版は `/docs` を採用する。`site/` 維持は GitHub Actions 前提になるため、初期版では採らない。
 
 ---
 
 ## Q31. 実機確認済み件名と Gmail 検索条件は整合しているか？
 **セクション**: 10.2, 10.3, `poc_gmail_read_spec.md` 8.1
 **質問**: 実機確認済みの件名は「Claude Code新機能が急上昇」だが、検索条件候補は「件名または本文に `AI` `Grok` `バズ` のいずれか」を前提にしている。PoC の第一検索条件は `from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d` を基本にし、件名キーワード条件は補助条件へ下げるべきではないか？
-**回答**: PoC の一次検索条件は `from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d` を正式採用とし、件名条件は補助条件とする。補助件名候補には `Claude Code` を追加し、`AI` `Grok` `バズ` は必須条件にしない。件名で絞りすぎず、送信元を主軸に検索する。
+**回答**: PoC の一次検索条件は `from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d` を正式採用とする。件名条件は補助条件に下げる。`AI` `Grok` `バズ` `Claude Code` は補助検索候補として使うが、必須条件にはしない。
 
 ---
 
 ## Q32. `data/draft/YYYY-MM-DD.json` の重複保存はどう扱うか？
 **セクション**: 20.3
 **質問**: 1 日に複数の解析失敗が発生した場合、`data/draft/YYYY-MM-DD.json` では上書きが起きる。ファイル名に時刻や `message_id` を含めるか、日次 JSON へ追記するか、どちらを正式仕様とするか？
-**回答**: draft 保存ファイル名は `data/draft/YYYY-MM-DD_<message_id>.json` を正式採用とする。`message_id` が使えない場合の代替として `data/draft/YYYY-MM-DD-HHMMSS.json` を用いる。日次 JSON への追記方式は採用しない。
+**回答**: 正式な命名規則は `data/draft/YYYY-MM-DD_<message_id>.json` とする。`message_id` が使えない場合のみ、`YYYY-MM-DD_HHMMSS` を代替とする。
 
 ---
 
