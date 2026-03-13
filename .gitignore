@@ -1,16 +1,5 @@
 credentials.json
 token.json
-client_secret_*.json
-__pycache__/
 *.pyc
+__pycache__/
 .env
-logs/*
-!logs/.gitkeep
-data/raw/*
-!data/raw/.gitkeep
-data/fetched_ids.json
-data/dedupe_index.json
-data/processed/*
-!data/processed/.gitkeep
-data/draft/*
-!data/draft/.gitkeep

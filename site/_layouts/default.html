@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}日刊AIエージェント</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}AIコーディングエージェント・開発者向けAIトレンドに特化した日刊専門誌{% endif %}">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6743751614716161"
+       crossorigin="anonymous"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", sans-serif; background: #f7f8fa; color: #222; line-height: 1.7; }
+    a { color: #0070f3; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header { background: #0e1117; color: #fff; padding: 0 1.5rem; }
+    header .inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    header .site-title { font-size: 1.1rem; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+    header nav a { color: #ccc; margin-left: 1.5rem; font-size: 0.9rem; }
+    header nav a:hover { color: #fff; text-decoration: none; }
+
+    .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+
+    footer { background: #0e1117; color: #888; text-align: center; font-size: 0.82rem; padding: 1.5rem; margin-top: 3rem; }
+    footer a { color: #aaa; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a class="site-title" href="{{ '/' | relative_url }}">📰 日刊AIエージェント</a>
+    <nav>
+      <a href="{{ '/about' | relative_url }}">About</a>
+      <a href="{{ '/categories' | relative_url }}">カテゴリ</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  {{ content }}
+</div>
+
+<footer>
+  <p>© 2026 日刊AIエージェント ─ AIコーディングエージェント専門誌</p>
+  <p style="margin-top:0.4rem"><a href="{{ '/about' | relative_url }}">About</a> ･ <a href="{{ '/privacy' | relative_url }}">プライバシーポリシー</a></p>
+  <p style="margin-top:0.4rem; font-size:0.78rem;">本サイトはGrok（X）による話題収集を元に構成しています。元投稿の全文転載は行いません。</p>
+</footer>
+
+</body>
+</html>

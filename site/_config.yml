@@ -1,0 +1,23 @@
+title: 日刊AIエージェント
+description: AIコーディングエージェント・開発者向けAIトレンドに特化した日刊専門誌
+url: "https://garyohosu.github.io"
+baseurl: "/daily-ai-agent"
+
+lang: ja
+timezone: Asia/Tokyo
+
+# Jekyll設定
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+# 除外ファイル
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# プラグイン
+plugins:
+  - jekyll-feed

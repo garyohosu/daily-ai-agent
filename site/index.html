@@ -1,0 +1,61 @@
+---
+layout: default
+title: ホーム
+---
+<style>
+  .hero { margin-bottom: 2rem; }
+  .hero h1 { font-size: 1.7rem; font-weight: 800; }
+  .hero p { color: #555; margin-top: 0.4rem; }
+  .ad-unit { margin: 1.5rem 0; text-align: center; }
+  .post-list { list-style: none; }
+  .post-list li { border-bottom: 1px solid #e5e5e5; padding: 1rem 0; }
+  .post-list .post-title { font-size: 1.05rem; font-weight: 700; }
+  .post-list .post-meta { font-size: 0.82rem; color: #777; margin-top: 0.2rem; }
+  .post-list .post-excerpt { font-size: 0.9rem; color: #444; margin-top: 0.4rem; }
+  .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; font-size: 0.73rem; border-radius: 3px; padding: 1px 6px; margin: 2px; }
+  .section-title { font-size: 1rem; font-weight: 700; border-bottom: 2px solid #0070f3; padding-bottom: 0.3rem; margin: 2rem 0 1rem; }
+</style>
+
+<div class="hero">
+  <h1>📰 日刊AIエージェント</h1>
+  <p>AIコーディングエージェント・開発者向けAIトレンドに特化した日刊専門誌</p>
+</div>
+
+<!-- トップ広告 -->
+<div class="ad-unit">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-6743751614716161"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="section-title">最近の記事</div>
+
+<ul class="post-list">
+  {% for post in site.posts limit:20 %}
+  <li>
+    <div class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></div>
+    <div class="post-meta">
+      {{ post.date | date: "%Y年%m月%d日" }}
+      {% for cat in post.categories %}<span class="tag">{{ cat }}</span>{% endfor %}
+    </div>
+    {% if post.excerpt %}
+    <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</div>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+<!-- 下部広告 -->
+<div class="ad-unit">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-6743751614716161"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>

@@ -125,6 +125,58 @@ Version: 0.5
 
 ---
 
+## Q24. Section 8.1 の検索条件と Section 8.2 のクエリ例が一致しない
+**セクション**: 8.1, 8.2
+**質問**: Section 8.1 では「件名または本文に `AI` `Grok` `バズ` のいずれか」を検索条件に含めているが、Section 8.2 の基本クエリ例 `from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d` にはこの条件が入っていない。どちらが正式な初期クエリか？また、この条件が必要な理由（`noreply@x.ai` から来るメール全てを対象にしない意図があるか）を明確にしてほしい。
+**回答**: 初期の正式クエリは `from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d` とする。`AI` `Grok` `バズ` 条件は補助クエリ（緩和第3段階）で使用する。理由は、送信元と宛先の一致が最も安定した判定軸であり、件名文言は将来変動し得るため。Section 8.1 を「候補条件」、Section 8.2 を「最初に試す正式クエリ」として整理する。
+
+---
+
+## Q25. Section 16.1 の再試行間隔（3秒）と Q14 の回答（30秒）が矛盾する
+**セクション**: 16.1
+**質問**: QandA Q14 の回答では「Gmail 取得の再試行は 3 回、30 秒間隔」とある。一方、本仕様書 Section 16.1 には「間隔 3 秒」とある。どちらが正しいか？
+**回答**: 再試行回数は 3 回、間隔は 30 秒を正式値とする。poc_gmail_read_spec.md Section 16.1 の「間隔 3 秒」は誤記として修正する。PoC では速度より安定性を優先する。
+
+---
+
+## Q26. Grok メール本文中の `t.co` 短縮 URL をどう扱うか
+**セクション**: 11.1
+**質問**: Grok（X）から届くメールの HTML 本文中、X URL は `https://t.co/xxxxx` の短縮形で埋め込まれる可能性が高い。Section 11.1 では `https://x.com/...` を抽出対象としているが、`t.co` URL が含まれる場合はどうするか。以下のどれを採用するか確認が必要。
+- (A) `t.co` もそのまま抽出して保存する
+- (B) `t.co` を HTTP GET でリダイレクト先に展開してから保存する
+- (C) `t.co` は無視し、`x.com` のみ対象とする
+**回答**: `x.com` と `t.co` の両方を抽出対象とする。保存時は原文 URL を `x_urls` に含め、可能であれば `resolved_url` フィールドとして展開結果を別保存する。展開失敗時も原文 URL を有効データとして扱い、PoC を失敗にしない。
+
+---
+
+## Q27. Gmail OAuth スコープが仕様書に未定義
+**セクション**: 4, 19.1
+**質問**: Gmail API の OAuth2 認証に必要なスコープが仕様書に記載されていない。読み取り専用であれば `https://www.googleapis.com/auth/gmail.readonly` が適切と思われるが、これで確定か？またメタ情報のみ取得できれば十分か、本文取得には別スコープが必要か確認が必要。
+**回答**: OAuth スコープは `https://www.googleapis.com/auth/gmail.readonly` を正式採用とする。本文取得を含む PoC に必要十分であり、`gmail.metadata` は本文を扱えないため不採用とする。
+
+---
+
+## Q28. `save_log()` の引数仕様が未定義
+**セクション**: 19.9
+**質問**: Section 19.9 の `save_log(...)` は引数が `...` のままで未定義。ログ出力は Python の `logging` モジュールのファイルハンドラで実装するのか、それとも独自のラッパー関数か？関数シグネチャを具体的にしてほしい。あるいはこの関数は「ログ設定の初期化」を指しているのか？
+**回答**: `save_log(...)` という曖昧名はやめ、`setup_logger(log_path: Path) -> logging.Logger` に変更する。ログ出力自体は Python 標準の `logging` モジュールに委ねる。必要に応じて `log_message_summary(logger: logging.Logger, message: dict)` のような補助関数を追加する。
+
+---
+
+## Q29. JSON 保存時の本文（`plain_text_body`）の長さ制限はあるか
+**セクション**: 13.3
+**質問**: Section 13.3 の JSON 形式例では `"plain_text_body": "...."` と全文保存するように読める。本文が数千〜数万文字になる場合も全文保存するか？それとも先頭 N 文字に切り詰めるか？PoC 目的では全文保存が望ましいが、ディスク容量・GitHubリポジトリへの影響も考慮が必要。
+**回答**: `plain_text_body` は JSON には先頭 20,000 文字まで保存する。超過時は `body_truncated: true` フィールドを付与する。ログ出力は先頭 500 文字程度に制限する。PoC の目的上、全文アーカイブは必須としない。
+
+---
+
+## Q30. `build_search_queries()` が返す複数クエリの具体的な内容は何か
+**セクション**: 8.3, 19.2
+**質問**: Section 8.3 では「厳しめ→緩和」の順で複数クエリを試す戦略を採る。Section 19.2 の `build_search_queries()` がそのリストを返す実装になると思われるが、緩和クエリの具体的な内容（何の条件を外すか、何段階緩和するか）が未定義。最低でも 2〜3 パターンの具体例を仕様に書いてほしい。
+**回答**: `build_search_queries()` は次の順で返す。① `from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d`（最優先）② `from:noreply@x.ai newer_than:7d`（宛先条件を外す）③ `from:noreply@x.ai (subject:AI OR subject:Grok OR subject:バズ) newer_than:14d`（期間拡大＋件名絞り）。初期版では 3 段階緩和とし、4 段階目以降は設けない。
+
+---
+
 ## Q18. Googleアドセンス未承認時も初期公開をブロックするか？
 **セクション**: 26（末尾追記）
 **質問**: 「googleアドセンスを各ページに入れておくこと」が追加されたが、AdSense 審査未完了・配信不可・ポリシー確認未了の状態でも、初期公開の完了条件に含めるか？含める場合、Phase 0〜3 のどこで満たすべきか？

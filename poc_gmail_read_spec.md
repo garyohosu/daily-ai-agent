@@ -1,4 +1,4 @@
-# scripts/poc_gmail_read.py 詳細仕様書
+# poc_gmail_read.py 詳細仕様書
 Project: バーチャル専門誌 日刊AIエージェント
 Phase: 0
 Status: Draft for Claude Code
@@ -7,7 +7,7 @@ Status: Draft for Claude Code
 
 ## 1. 目的
 
-`scripts/poc_gmail_read.py` は、Gmail に届いた Grok タスク通知メールを直接読めるかどうかを検証するための実証実験用スクリプトである。
+`poc_gmail_read.py` は、Gmail に届いた Grok タスク通知メールを直接読めるかどうかを検証するための実証実験用スクリプトである。
 
 本スクリプトの目的は、記事生成や公開ではなく、以下を確認することに限定する。
 
@@ -74,6 +74,15 @@ Service Account は採用しない。
 
 - `credentials.json`
 - `token.json`
+
+### 4.5 OAuth スコープ
+使用するスコープは以下とする。
+
+```
+https://www.googleapis.com/auth/gmail.readonly
+```
+
+本文取得を含む PoC に必要十分であり、`gmail.metadata` は本文を扱えないため不採用とする。
 
 ### 4.4 セキュリティ要件
 - `credentials.json` と `token.json` は `.gitignore` に含める
@@ -144,37 +153,31 @@ Service Account は採用しない。
 
 ## 8. 検索仕様
 
-### 8.1 基本検索条件
-PoC の初期検索条件は以下とする。
+### 8.1 基本検索条件（候補）
+以下を検索条件の候補とする。正式な初期クエリは Section 8.2 に定める。
 
 - From: `noreply@x.ai`
 - To: `garyohosu@gmail.com`
-- 一次検索条件は `from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d`
-- 件名条件は必須にせず、必要なら `Claude Code` `AI` `Grok` `バズ` を補助条件に使う
 - 直近 7 日以内
+- 補助: 件名に `AI` `Grok` `バズ` のいずれか（緩和クエリで使用）
 
 ### 8.2 Gmail 検索クエリ例
+最初に試す正式クエリは以下とする。
+
 ```text
 from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d
 ```
 
-必要に応じて以下の補助条件も候補とする。
-
-```text
-from:noreply@x.ai newer_than:7d
-from:noreply@x.ai subject:"Claude Code" newer_than:7d
-from:noreply@x.ai subject:AI newer_than:7d
-from:noreply@x.ai subject:Grok newer_than:7d
-from:noreply@x.ai subject:バズ newer_than:7d
-```
+`AI` `Grok` `バズ` 条件は緩和クエリとして使用する。Section 8.3 の段階的緩和クエリを参照。
 
 ### 8.3 検索戦略
-検索は次の順で行う。
+検索は次の 3 段階の順で行う。
 
-1. 一次検索条件 `from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d` で検索
-2. 結果 0 件なら `from:noreply@x.ai newer_than:7d` で再検索
-3. それでも 0 件なら件名補助条件（`Claude Code` `AI` `Grok` `バズ`）で再検索
-4. それでも 0 件なら失敗
+1. `from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d`
+2. `from:noreply@x.ai newer_than:7d`（宛先条件を外す）
+3. `from:noreply@x.ai (subject:AI OR subject:Grok OR subject:バズ) newer_than:14d`（期間拡大＋件名絞り）
+
+4 段階目以降は設けない。それでも 0 件なら失敗とする。
 
 ### 8.4 取得件数
 - 最大 5 件まで取得する
@@ -237,6 +240,9 @@ HTML 本文しかない場合は、タグ除去してプレーンテキスト化
 対象例:
 - `https://x.com/...`
 - `http://x.com/...`
+- `https://t.co/...`（X の短縮 URL）
+
+`t.co` は原文 URL のまま保存する。可能であれば HTTP GET でリダイレクト先を展開し、`resolved_url` フィールドに別保存する。展開失敗時も原文 URL を有効データとして扱い、PoC を失敗にしない。
 
 ### 11.2 副対象
 必要なら関連 URL も抽出する。
@@ -304,15 +310,22 @@ HTML 本文しかない場合は、タグ除去してプレーンテキスト化
       "date": "Wed, 12 Mar 2026 06:35:00 +0900",
       "snippet": "AIバズ＆新機能まとめ...",
       "plain_text_body": "....",
+      "body_truncated": false,
       "has_html_body": true,
       "x_urls": [
-        "https://x.com/...."
+        "https://x.com/....",
+        "https://t.co/xxxxx"
       ],
+      "resolved_urls": {
+        "https://t.co/xxxxx": "https://x.com/...."
+      },
       "other_urls": []
     }
   ]
 }
 ```
+
+`plain_text_body` は先頭 20,000 文字まで保存する。超過時は `body_truncated: true` とする。
 
 ---
 
@@ -371,7 +384,7 @@ HTML 本文しかない場合は、タグ除去してプレーンテキスト化
 
 ### 16.1 Gmail API 呼び出し
 - 最大 3 回
-- 間隔 3 秒
+- 間隔 30 秒
 - 429 / 5xx 系のみ再試行対象
 
 ### 16.2 認証エラー
@@ -386,8 +399,7 @@ HTML 本文しかない場合は、タグ除去してプレーンテキスト化
 daily-ai-agent/
   credentials.json
   token.json
-  scripts/
-    poc_gmail_read.py
+  poc_gmail_read.py
   logs/
   data/
     raw/
@@ -472,9 +484,14 @@ daily-ai-agent/
 戻り値:
 - `str`
 
-### 19.9 `save_log(...)`
+### 19.9 `setup_logger(log_path: Path) -> logging.Logger`
 責務:
-- ログ出力
+- ログ設定の初期化
+- ファイルハンドラとコンソールハンドラを設定する
+- Python 標準 `logging` モジュールを使用する
+
+補助関数:
+- `log_message_summary(logger: logging.Logger, message: dict)` — 各メールの subject / from / date / URL 件数をログ出力する
 
 ### 19.10 `save_json_sample(data)`
 責務:
@@ -508,7 +525,7 @@ daily-ai-agent/
 
 以下の方針で実装すること。
 
-1. まずは単一ファイル `scripts/poc_gmail_read.py` として実装する
+1. まずは単一ファイル `poc_gmail_read.py` として実装する
 2. クラス化は不要、関数分割で可読性を確保する
 3. 型ヒントを付ける
 4. `if __name__ == "__main__": main()` を使う
@@ -517,7 +534,7 @@ daily-ai-agent/
 7. 記事生成や公開処理は入れない
 8. コード内コメントは必要最低限にする
 9. 実行に必要なパッケージ一覧を冒頭コメントまたは README 用に併記する
-10. 将来 `scripts/fetch_gmail.py` へ流用しやすい関数名にする
+10. 将来 `fetch_gmail.py` へ流用しやすい関数名にする
 
 ---
 
@@ -540,11 +557,10 @@ daily-ai-agent/
 
 この PoC 成功後は、以下へ接続する。
 
-- `scripts/fetch_gmail.py`
-- `scripts/parse_mail.py`
-- `scripts/normalize_items.py`
-- `scripts/compose_article.py`
-上記はすべて `scripts/` 配下に置く前提とする。
+- `fetch_gmail.py`
+- `parse_mail.py`
+- `normalize_items.py`
+- `compose_article.py`
 
 本スクリプトは、その最初の検証用である。
 
@@ -552,7 +568,7 @@ daily-ai-agent/
 
 ## 24. 完了条件
 
-以下を満たしたら `scripts/poc_gmail_read.py` 実装完了とする。
+以下を満たしたら `poc_gmail_read.py` 実装完了とする。
 
 - スクリプトがローカルで起動する
 - Gmail 認証が通る
