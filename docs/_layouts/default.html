@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- OGP -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/ogp/default.png">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/ogp/default.png">
+
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/feed.xml">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="site-wrapper">
+      <div class="site-title">
+        <a href="{{ site.baseurl }}/">日刊AIエージェント</a>
+        <span class="badge">β</span>
+      </div>
+      <nav class="site-nav">
+        <a href="{{ site.baseurl }}/" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+        <a href="{{ site.baseurl }}/categories" {% if page.url contains 'categories' %}class="active"{% endif %}>カテゴリ</a>
+        <a href="{{ site.baseurl }}/about" {% if page.url contains 'about' %}class="active"{% endif %}>About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main>
+    <div class="site-wrapper">
+      {{ content }}
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="site-wrapper">
+      <div class="footer-links">
+        <a href="{{ site.baseurl }}/about">収集・編集方針</a>
+        <a href="{{ site.baseurl }}/about#disclaimer">免責事項</a>
+        <a href="https://x.com" target="_blank" rel="noopener">X (Twitter)</a>
+      </div>
+      <p>© 2026 日刊AIエージェント — Grok × GitHub Pages で構成する開発者向け専門誌</p>
+      <p>本サイトは Grok による X 話題収集結果を元に構成しています。元投稿の転載は行わず、要約とリンク中心で掲載しています。</p>
+    </div>
+  </footer>
+
+</body>
+</html>

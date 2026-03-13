@@ -1,0 +1,31 @@
+title: "日刊AIエージェント"
+description: "Claude Code・Codexなど開発者向けAIエージェント専門誌"
+url: "https://garyohosu.github.io"
+baseurl: "/daily-ai-agent"
+lang: ja
+
+author: "daily-ai-agent"
+email: ""
+
+# パーマリンク
+permalink: /:year-:month-:day-:title/
+
+# ビルド設定
+markdown: kramdown
+highlighter: rouge
+timezone: Asia/Tokyo
+
+# プラグイン（GitHub Pages 対応）
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 除外
+exclude:
+  - "*.py"
+  - "*.json"
+  - "*.log"
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

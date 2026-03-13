@@ -1,0 +1,63 @@
+---
+layout: default
+title: "日刊AIエージェント"
+description: "Claude Code・Codexなど開発者向けAIエージェントの最新トレンドを毎日お届けする専門誌"
+---
+
+{% assign posts = site.posts %}
+{% assign latest = posts.first %}
+
+<!-- ヒーローセクション（最新記事） -->
+{% if latest %}
+<section class="hero">
+  <div class="hero-label">最新記事</div>
+  <h1>{{ latest.title }}</h1>
+  <div class="hero-date">{{ latest.date | date: "%Y年%-m月%-d日" }}
+    {% for tag in latest.tags %}
+      {% assign tag_key = tag | downcase | replace: ' ', '-' %}
+      &nbsp;<span class="tag tag-{{ tag_key }}" style="font-size:0.7rem;">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% if latest.description %}
+    <p class="hero-lead">{{ latest.description }}</p>
+  {% endif %}
+  <a class="read-more" href="{{ site.baseurl }}{{ latest.url }}">記事を読む →</a>
+</section>
+{% endif %}
+
+<!-- 過去記事一覧 -->
+<h2 class="section-title">最近の記事</h2>
+
+<ul class="archive-list">
+  {% for post in posts limit:20 %}
+  <li>
+    <span class="arc-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+    <span class="arc-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></span>
+    <span class="arc-tags">
+      {% for tag in post.tags %}
+        {% assign tag_key = tag | downcase | replace: ' ', '-' %}
+        <span class="tag tag-{{ tag_key }}">{{ tag }}</span>
+      {% endfor %}
+    </span>
+  </li>
+  {% endfor %}
+</ul>
+
+{% if posts.size > 20 %}
+<p style="text-align:center; margin-top:1.5rem;">
+  <a href="{{ site.baseurl }}/archives">すべての記事を見る →</a>
+</p>
+{% endif %}
+
+<!-- サイト説明 -->
+<section style="margin-top:3rem; padding:1.5rem; background:#fff; border-radius:8px; border:1px solid #e2e8f0;">
+  <h2 class="section-title" style="margin-top:0;">この専門誌について</h2>
+  <p style="font-size:0.9rem; color:#4a5568;">
+    「日刊AIエージェント」は、Grok が X 上から収集した AI エージェント関連の話題を元に、
+    Claude Code・Codex・Devin などの開発者向けツールトレンドを日刊でまとめる専門誌です。
+    元投稿の転載はせず、要約とリンクを中心にお届けします。
+  </p>
+  <p style="font-size:0.85rem; margin-bottom:0;">
+    <a href="{{ site.baseurl }}/about">収集・編集方針を見る →</a>
+  </p>
+</section>
