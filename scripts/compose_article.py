@@ -22,6 +22,7 @@ POSTS_DIR          = Path("docs/_posts")
 LOGS_DIR           = Path("logs")
 
 JST = ZoneInfo("Asia/Tokyo")
+MIN_ITEMS_PER_DAY = 5
 
 
 # ---- ログ設定 -------------------------------------------------------------
@@ -391,9 +392,20 @@ def main() -> None:
 
     logger.info(f"対象日: {sorted(by_date.keys())}")
 
+    had_error = False
+    today_jst = datetime.now(JST).strftime("%Y-%m-%d")
+
     for date_str in sorted(by_date.keys()):
         items = by_date[date_str]
         logger.info(f"--- {date_str}  アイテム数={len(items)}")
+
+        if date_str == today_jst and len(items) < MIN_ITEMS_PER_DAY:
+            logger.error(
+                f"{date_str}: アイテム数不足 ({len(items)}件)。"
+                f"メール本文が途中で切れている可能性あり（Continue reading）。"
+            )
+            had_error = True
+            continue
 
         article = compose_article(date_str, items)
 
@@ -411,6 +423,10 @@ def main() -> None:
                 f"  [{i}] {item.get('title', '')[:40]}"
                 f"  cat={item.get('category')}  likes={item.get('likes')}"
             )
+
+    if had_error:
+        logger.error("最低件数を満たさない日があるため失敗終了します")
+        raise SystemExit(1)
 
     logger.info("=== 完了 ===")
 
