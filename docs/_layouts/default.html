@@ -6,6 +6,11 @@
   <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 
+  <!-- Google Fonts: Noto Serif JP and Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
   <!-- OGP -->
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
@@ -26,16 +31,23 @@
 </head>
 <body>
 
-  <!-- ヘッダー -->
+  <!-- 専門誌風ヘッダー -->
   <header class="site-header">
     <div class="site-wrapper">
-      <div class="site-title">
+      <h1 class="site-title">
         <a href="{{ site.baseurl }}/">日刊AIエージェント</a>
         <span class="badge">β</span>
+      </h1>
+      
+      <div class="header-meta">
+        <span>Daily AI Agent Magazine</span>
+        <span>Tokyo / Global Edition</span>
+        <span>{{ "now" | date: "%Y.%m.%d %A" }}</span>
       </div>
+
       <nav class="site-nav">
         <a href="{{ site.baseurl }}/" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
-        <a href="{{ site.baseurl }}/categories" {% if page.url contains 'categories' %}class="active"{% endif %}>カテゴリ</a>
+        <a href="{{ site.baseurl }}/categories" {% if page.url contains 'categories' %}class="active"{% endif %}>Categories</a>
         <a href="{{ site.baseurl }}/about" {% if page.url contains 'about' %}class="active"{% endif %}>About</a>
       </nav>
     </div>
@@ -48,16 +60,34 @@
     </div>
   </main>
 
-  <!-- フッター -->
+  <!-- 専門誌風フッター -->
   <footer class="site-footer">
     <div class="site-wrapper">
-      <div class="footer-links">
-        <a href="{{ site.baseurl }}/about">収集・編集方針</a>
-        <a href="{{ site.baseurl }}/about#disclaimer">免責事項</a>
-        <a href="https://x.com" target="_blank" rel="noopener">X (Twitter)</a>
+      <div class="footer-info">
+        <h4>日刊AIエージェント</h4>
+        <p>AIエージェント、自律型AI、開発支援AIの最新トレンドをX上の話題からキュレーションする、エンジニアのための専門メディアです。</p>
       </div>
-      <p>© 2026 日刊AIエージェント — Grok × GitHub Pages で構成する開発者向け専門誌</p>
-      <p>本サイトは Grok による X 話題収集結果を元に構成しています。元投稿の転載は行わず、要約とリンク中心で掲載しています。</p>
+      
+      <div class="footer-links-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div class="footer-column">
+          <nav class="footer-links">
+            <a href="{{ site.baseurl }}/">Home</a>
+            <a href="{{ site.baseurl }}/about">About This Project</a>
+            <a href="{{ site.baseurl }}/categories">Topic Categories</a>
+          </nav>
+        </div>
+        <div class="footer-column">
+          <nav class="footer-links">
+            <a href="https://x.com" target="_blank" rel="noopener">X (Twitter)</a>
+            <a href="{{ site.baseurl }}/feed.xml">RSS Feed</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Daily AI Agent. Powered by Grok & GitHub Pages.</p>
+        <p>情報の正確性には細心の注意を払っていますが、最新情報は各リンク先をご確認ください。</p>
+      </div>
     </div>
   </footer>
 

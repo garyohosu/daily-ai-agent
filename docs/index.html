@@ -7,66 +7,104 @@ description: "Claude Code・Codexなど開発者向けAIエージェントの最
 {% assign posts = site.posts %}
 {% assign latest = posts.first %}
 
-<!-- ヒーローセクション（最新記事） -->
+<!-- 雑誌風ヒーローセクション（最新号） -->
 {% if latest %}
-<section class="hero">
-  <div class="hero-label">Latest Issue</div>
-  <h1>{{ latest.hero_summary | default: latest.title }}</h1>
-  <div class="hero-date">{{ latest.date | date: "%Y年%-m月%-d日" }}</div>
-  <p class="hero-lead">{{ latest.description | default: "開発者向けAIエージェント動向を、注目順に編集した日刊号" }}</p>
-  <div class="hero-stats" style="margin-top:1rem;">
-    <div class="stat-card"><span>Topics</span><strong>{{ latest.topic_count | default: "-" }}</strong></div>
-    <div class="stat-card"><span>High Confidence</span><strong>{{ latest.high_confidence_count | default: "-" }}</strong></div>
-    <div class="stat-card"><span>Main Category</span><strong>{% if latest.top_categories %}{{ latest.top_categories[0] }}{% else %}-{% endif %}</strong></div>
-    <div class="stat-card"><span>Source</span><strong>{{ latest.source_name | default: "Grok / X" }}</strong></div>
+<section class="mag-hero">
+  <div class="hero-main">
+    <span class="label-kicker">Latest Issue</span>
+    <h2 class="hero-title">
+      <a href="{{ site.baseurl }}{{ latest.url }}" style="color: inherit; text-decoration: none;">
+        {{ latest.hero_summary | default: latest.title }}
+      </a>
+    </h2>
+    <p class="hero-lead">
+      {{ latest.description | default: "開発者向けAIエージェント動向を、注目順に編集した日刊号。" }}
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span>Publish Date</span>
+        <strong>{{ latest.date | date: "%Y.%m.%d %A" }}</strong>
+      </div>
+      <div class="stat-item">
+        <span>Main Focus</span>
+        <strong>{% if latest.top_categories %}{{ latest.top_categories[0] }}{% else %}AI Agent Trends{% endif %}</strong>
+      </div>
+      <div class="stat-item">
+        <span>Total Topics</span>
+        <strong>{{ latest.topic_count | default: "-" }} Articles</strong>
+      </div>
+      <div class="stat-item">
+        <span>High Conf.</span>
+        <strong>{{ latest.high_confidence_count | default: "0" }} Topics</strong>
+      </div>
+    </div>
+    <div style="margin-top: 2.5rem;">
+      <a href="{{ site.baseurl }}{{ latest.url }}" class="pill pill-indigo" style="font-size: 1rem; padding: 10px 24px;">最新号を読む →</a>
+    </div>
   </div>
-  <a class="read-more" href="{{ site.baseurl }}{{ latest.url }}">最新号を読む →</a>
+  
+  <div class="hero-sub-stories">
+    <div class="section-header" style="border-bottom-width: 2px; margin-bottom: 1.5rem;">
+      <h3 class="section-title" style="font-size: 1.25rem;">Featured in this Issue</h3>
+    </div>
+    <!-- 最新号の内容を少しチラ見せするためのロジック（もし記事内に特定の構造があれば） -->
+    <!-- 現状は簡易的に、最新号へのリンクを強調するにとどめる -->
+    <div style="background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border);">
+      <p style="font-size: 0.9rem; color: var(--text-sub); margin-bottom: 1rem;">本号のハイライト：</p>
+      <ul style="list-style: none; padding: 0; font-size: 0.95rem; font-weight: 700; line-height: 1.5;">
+        <li style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--border);">
+          <span style="display: block; font-size: 0.7rem; color: var(--accent); margin-bottom: 0.25rem;">TOPIC 01</span>
+          {{ latest.title }}
+        </li>
+        <li style="color: var(--text-muted); font-weight: 400;">
+          その他、{{ latest.topic_count | minus: 1 }}つのトピックを掲載中
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
 {% endif %}
 
-<!-- 過去記事一覧 -->
-<h2 class="section-title">バックナンバー</h2>
+<!-- バックナンバー一覧 -->
+<div class="section-header">
+  <h2 class="section-title">Issue Archive</h2>
+  <a href="{{ site.baseurl }}/archives" style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase;">View All</a>
+</div>
 
-<div class="brief-grid">
-  {% for post in posts offset:1 limit:20 %}
-  <article class="story-card brief">
-    <div class="story-meta">
-      <span class="story-rank">{{ post.date | date: "%Y-%m-%d" }}</span>
+<div class="topic-grid">
+  {% for post in posts offset:1 limit:12 %}
+  <article class="story-card">
+    <span class="card-category">
       {% if post.top_categories and post.top_categories[0] %}
-      <span class="category-pill category--other">{{ post.top_categories[0] }}</span>
+        {{ post.top_categories[0] }}
+      {% else %}
+        Daily Report
       {% endif %}
-    </div>
+    </span>
     <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
     <p class="story-summary">
       {% if post.hero_summary %}
-        {{ post.hero_summary }}
+        {{ post.hero_summary | truncate: 80 }}
       {% else %}
-        {{ post.description | default: "日刊AIエージェントのバックナンバー" }}
+        {{ post.description | default: "日刊AIエージェントのバックナンバー" | truncate: 80 }}
       {% endif %}
     </p>
-    <div class="story-links">
-      <a href="{{ site.baseurl }}{{ post.url }}">読む</a>
-      {% if post.topic_count %}<span class="confidence-pill confidence--midhigh">{{ post.topic_count }}件</span>{% endif %}
+    <div class="story-meta">
+      <time>{{ post.date | date: "%Y.%m.%d" }}</time>
+      <span style="margin-left: auto;">{{ post.topic_count | default: "0" }} topics</span>
     </div>
   </article>
   {% endfor %}
 </div>
 
-{% if posts.size > 20 %}
-<p style="text-align:center; margin-top:1.5rem;">
-  <a href="{{ site.baseurl }}/archives">すべての記事を見る →</a>
-</p>
-{% endif %}
-
-<!-- サイト説明 -->
-<section style="margin-top:3rem; padding:1.5rem; background:#fff; border-radius:8px; border:1px solid #e2e8f0;">
-  <h2 class="section-title" style="margin-top:0;">この専門誌について</h2>
-  <p style="font-size:0.9rem; color:#4a5568;">
-    「日刊AIエージェント」は、Grok が X 上から収集した AI エージェント関連の話題を元に、
-    Claude Code・Codex・Devin などの開発者向けツールトレンドを日刊でまとめる専門誌です。
-    元投稿の転載はせず、要約とリンクを中心にお届けします。
-  </p>
-  <p style="font-size:0.85rem; margin-bottom:0;">
-    <a href="{{ site.baseurl }}/about">収集・編集方針を見る →</a>
-  </p>
+<!-- サイト説明 (About Box) -->
+<section style="margin: 6rem 0; padding: 4rem; background: var(--text-main); color: #fff; border-radius: var(--radius);">
+  <div style="max-width: 600px;">
+    <h2 class="section-title" style="color: #fff; margin-bottom: 1.5rem;">About Daily AI Agent</h2>
+    <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.8; margin-bottom: 2rem;">
+      「日刊AIエージェント」は、Grok が X 上から収集した情報を元に構成される自律型AI専門メディアです。
+      エンジニアが今追うべきツールやリサーチを、独自の信頼度指標とカテゴリ分けでお届けします。
+    </p>
+    <a href="{{ site.baseurl }}/about" class="pill" style="background: #fff; color: var(--text-main); padding: 10px 24px;">編集方針の詳細を見る</a>
+  </div>
 </section>

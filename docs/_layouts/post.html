@@ -3,13 +3,29 @@ layout: default
 ---
 
 <article class="post">
-  <header class="post-header">
-    <div class="post-meta">
-      <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%Y年%-m月%-d日" }}</time>
-      {% for tag in page.tags %}
-        {% assign tag_key = tag | downcase | replace: ' ', '-' %}
-        <span class="tag tag-{{ tag_key }}">{{ tag }}</span>
-      {% endfor %}
+  <!-- 雑誌風記事ヘッダー -->
+  <header class="post-header-mag">
+    <span class="post-issue-num">Daily Issue / Vol. {{ page.date | date: "%Y%m%d" }}</span>
+    <h1 class="post-title-mag">{{ page.title }}</h1>
+    <p class="post-lead-mag">
+      {{ page.description | default: "本日のAIエージェント関連の注目トピックをまとめました。" }}
+    </p>
+    
+    <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; font-size: 0.9rem; font-weight: 700;">
+      <div class="meta-item">
+        <span class="meta-label">Date</span>
+        <span class="meta-value">{{ page.date | date: "%Y年%-m月%-d日" }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Total Topics</span>
+        <span class="meta-value">{{ page.topic_count | default: "-" }}</span>
+      </div>
+      {% if page.top_categories %}
+      <div class="meta-item">
+        <span class="meta-label">Primary Field</span>
+        <span class="meta-value">{{ page.top_categories[0] }}</span>
+      </div>
+      {% endif %}
     </div>
   </header>
 
@@ -17,14 +33,22 @@ layout: default
     {{ content }}
   </div>
 
-  <nav class="post-nav" style="margin-top:3rem; padding-top:1rem; border-top:1px solid #e2e8f0; display:flex; justify-content:space-between; font-size:0.85rem; gap:1rem;">
+  <!-- 下部ナビゲーション -->
+  <nav class="post-nav" style="margin-top:8rem; padding-top:4rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; gap:2rem;">
     {% if page.previous.url %}
-      <a href="{{ site.baseurl }}{{ page.previous.url }}">← {{ page.previous.title }}</a>
+      <a href="{{ site.baseurl }}{{ page.previous.url }}" style="flex: 1; text-align: left; text-decoration: none;">
+        <span style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem;">Previous Issue</span>
+        <span style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--text-main);">← {{ page.previous.title }}</span>
+      </a>
     {% else %}
-      <span></span>
+      <div style="flex: 1;"></div>
     {% endif %}
+
     {% if page.next.url %}
-      <a href="{{ site.baseurl }}{{ page.next.url }}">{{ page.next.title }} →</a>
+      <a href="{{ site.baseurl }}{{ page.next.url }}" style="flex: 1; text-align: right; text-decoration: none;">
+        <span style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem;">Next Issue</span>
+        <span style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--text-main);">{{ page.next.title }} →</span>
+      </a>
     {% endif %}
   </nav>
 </article>
