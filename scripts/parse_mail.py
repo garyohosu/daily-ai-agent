@@ -68,6 +68,11 @@ def detect_parse_type(body: str) -> str:
     if has_title and has_summary and has_xurl:
         return "structured_label"
 
+    # 新形式: "タイトル | https://x.com/... | 要約"
+    has_pipe_x = bool(re.search(r"\|\s*https?://(?:www\.)?x\.com/", body))
+    if has_pipe_x:
+        return "pipe_list"
+
     has_bullet = bool(
         re.search(r"^\(Likes:", body, re.MULTILINE)
         or re.search(r"^リンク:", body, re.MULTILINE)
@@ -177,6 +182,42 @@ def _parse_likes(line: str) -> int | None:
         except ValueError:
             pass
     return None
+
+
+def parse_pipe_list(body: str) -> list[dict]:
+    """
+    1行1アイテム形式:
+      タイトル | https://x.com/... | 要約
+    """
+    items: list[dict] = []
+    for ln in _strip_footer(body).splitlines():
+        line = ln.strip().strip("・- ")
+        if not line or "|" not in line:
+            continue
+
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) < 2:
+            continue
+
+        title = parts[0] or None
+        x_url = parts[1] if re.match(r"https?://(?:www\.)?x\.com/", parts[1]) else None
+        summary = parts[2] if len(parts) >= 3 else None
+
+        if not title and not x_url:
+            continue
+
+        items.append({
+            "title": title,
+            "summary": summary,
+            "why_trending": None,
+            "x_url": x_url,
+            "related_source_url": None,
+            "category": None,
+            "confidence": None,
+            "likes": None,
+        })
+
+    return items
 
 
 def parse_bullet_summary(body: str) -> list[dict]:
@@ -310,6 +351,8 @@ def main() -> None:
         try:
             if parse_type == "structured_label":
                 items = parse_structured_label(body)
+            elif parse_type == "pipe_list":
+                items = parse_pipe_list(body)
             elif parse_type == "bullet_summary":
                 items = parse_bullet_summary(body)
             else:

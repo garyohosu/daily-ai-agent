@@ -16,7 +16,10 @@ import json
 import logging
 import re
 from datetime import datetime, timezone
+from html import unescape
 from pathlib import Path
+from urllib.parse import quote
+from urllib.request import urlopen, Request
 
 # ---- 設定 ---------------------------------------------------------------
 DATA_PROCESSED_DIR = Path("data/processed")
@@ -203,17 +206,39 @@ def normalize_text(text: str | None) -> str | None:
     return text if text else None
 
 
+def fetch_x_summary_from_oembed(x_url: str | None) -> str | None:
+    """X URL から oEmbed を使って本文要約候補を取得する（失敗時は None）。"""
+    if not x_url:
+        return None
+    try:
+        endpoint = "https://publish.twitter.com/oembed?omit_script=1&url=" + quote(x_url, safe="")
+        req = Request(endpoint, headers={"User-Agent": "daily-ai-agent/1.0"})
+        with urlopen(req, timeout=8) as resp:
+            data = json.loads(resp.read().decode("utf-8", errors="replace"))
+        html = data.get("html", "")
+        text = re.sub(r"<[^>]+>", " ", html)
+        text = normalize_text(unescape(text))
+        if not text:
+            return None
+        return text[:180]
+    except Exception:
+        return None
+
+
 # ---- アイテム1件の正規化 -------------------------------------------------
 def normalize_item(item: dict) -> dict:
     category_raw = item.get("category")
     title   = normalize_text(item.get("title"))
+    x_url   = normalize_url(item.get("x_url"))
     summary = normalize_text(item.get("summary"))
+    if not summary:
+        summary = fetch_x_summary_from_oembed(x_url)
 
     return {
         "title":               title,
         "summary":             summary,
         "why_trending":        normalize_text(item.get("why_trending")),
-        "x_url":               normalize_url(item.get("x_url")),
+        "x_url":               x_url,
         "related_source_url":  normalize_url(item.get("related_source_url")),
         "category_raw":        category_raw,
         "category":            normalize_category(category_raw, title, summary),
