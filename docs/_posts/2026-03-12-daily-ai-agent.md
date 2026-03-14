@@ -15,16 +15,16 @@ lead_indices: [0, 1, 2]
 
 <section class="mag-hero">
   <div class="hero-main">
-    <p class="hero-kicker">本日の概況</p>
-    <h1>日刊AIエージェント 2026-03-12</h1>
-    <p class="hero-sub">AI Agents を中心に 3 件のトピック</p>
+    <p class="hero-kicker">本日のカバーストーリー</p>
+    <h1>AI Agents が主役の 3 本</h1>
+    <p class="hero-sub">2026-03-12号 — AI Agents を中心に、実装に効く話題を編集</p>
     <p class="hero-lead">本日 2026-03-12 は、AI Agents を中心に 3 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>総件数</span><strong>3</strong></div>
-    <div class="stat-card"><span>主カテゴリ</span><strong>AI Agents</strong></div>
-    <div class="stat-card"><span>高信頼トピック</span><strong>0</strong></div>
-    <div class="stat-card"><span>収集元</span><strong>Grok / X</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>3</strong></div>
+    <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
+    <div class="stat-card"><span>Main Category</span><strong>AI Agents</strong></div>
+    <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
   </div>
 </section>
 
@@ -35,7 +35,7 @@ lead_indices: [0, 1, 2]
 
 
 <section class="top-stories">
-  <h2>注目トピック</h2>
+  <h2>Featured Stories</h2>
   <div class="lead-grid">
     
 <article class="story-card lead">

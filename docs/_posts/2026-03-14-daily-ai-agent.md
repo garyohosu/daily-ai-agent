@@ -17,16 +17,16 @@ lead_indices: [0, 1, 2]
 
 <section class="mag-hero">
   <div class="hero-main">
-    <p class="hero-kicker">本日の概況</p>
-    <h1>日刊AIエージェント 2026-03-14</h1>
-    <p class="hero-sub">Claude Code・Enterprise・Prompt Engineering を中心に 14 件のトピック</p>
+    <p class="hero-kicker">本日のカバーストーリー</p>
+    <h1>Claude Code が主役の 14 本</h1>
+    <p class="hero-sub">2026-03-14号 — Claude Code・Enterprise・Prompt Engineering を中心に、実装に効く話題を編集</p>
     <p class="hero-lead">本日 2026-03-14 は、Claude Code・Enterprise・Prompt Engineering を中心に 14 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>総件数</span><strong>14</strong></div>
-    <div class="stat-card"><span>主カテゴリ</span><strong>Claude Code / Enterprise / Prompt Engineering</strong></div>
-    <div class="stat-card"><span>高信頼トピック</span><strong>2</strong></div>
-    <div class="stat-card"><span>収集元</span><strong>Grok / X</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>14</strong></div>
+    <div class="stat-card"><span>High Confidence</span><strong>2</strong></div>
+    <div class="stat-card"><span>Main Category</span><strong>Claude Code</strong></div>
+    <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
   </div>
 </section>
 
@@ -37,7 +37,7 @@ lead_indices: [0, 1, 2]
 
 
 <section class="top-stories">
-  <h2>注目トピック</h2>
+  <h2>Featured Stories</h2>
   <div class="lead-grid">
     
 <article class="story-card lead">
