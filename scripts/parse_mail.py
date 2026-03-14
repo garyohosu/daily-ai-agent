@@ -61,12 +61,11 @@ def load_unparsed_files() -> list[Path]:
 
 # ---- 本文形式の自動判定 --------------------------------------------------
 def detect_parse_type(body: str) -> str:
-    has_structured = bool(
-        re.search(r"^Title:", body, re.MULTILINE)
-        and re.search(r"^Summary:", body, re.MULTILINE)
-        and re.search(r"^X URL:", body, re.MULTILINE)
-    )
-    if has_structured:
+    has_title   = bool(re.search(r"^(?:Title|タイトル)[：:]", body, re.MULTILINE))
+    has_summary = bool(re.search(r"^(?:Summary|概要)[：:]", body, re.MULTILINE))
+    has_xurl    = bool(re.search(r"^X URL[：:]", body, re.MULTILINE))
+
+    if has_title and has_summary and has_xurl:
         return "structured_label"
 
     has_bullet = bool(
@@ -80,20 +79,21 @@ def detect_parse_type(body: str) -> str:
 
 
 # ---- 構造ラベル型パーサ --------------------------------------------------
-# 抽出対象ラベルと対応フィールド名
+# 抽出対象ラベルと対応フィールド名（英語・日本語ラベル・全角/半角コロンに対応）
 _STRUCTURED_LABELS = [
-    ("title",              r"^Title:"),
-    ("summary",            r"^Summary:"),
-    ("why_trending",       r"^Why it is trending:"),
-    ("x_url",              r"^X URL:"),
-    ("related_source_url", r"^Related source URL:"),
-    ("category",           r"^Category:"),
-    ("confidence",         r"^Confidence:"),
+    ("title",              r"^(?:Title|タイトル)[：:]"),
+    ("summary",            r"^(?:Summary|概要)[：:]"),
+    ("why_trending",       r"^(?:Why it is trending|トレンドになっている理由|なぜ話題か)[：:]"),
+    ("x_url",              r"^X URL[：:]"),
+    ("related_source_url", r"^(?:Related source URL|関連ソースURL)[：:]"),
+    ("category",           r"^(?:Category|カテゴリー?)[：:]"),
+    ("confidence",         r"^(?:Confidence|信頼度)[：:]"),
 ]
 
 # ラベル行の先頭にマッチする総合パターン（次ラベルの検出用）
 _ANY_LABEL_RE = re.compile(
-    r"^(?:Title|Summary|Why it is trending|X URL|Related source URL|Category|Confidence):",
+    r"^(?:Title|タイトル|Summary|概要|Why it is trending|トレンドになっている理由|なぜ話題か"
+    r"|X URL|Related source URL|関連ソースURL|Category|カテゴリー?|Confidence|信頼度)[：:]",
     re.MULTILINE,
 )
 
@@ -127,12 +127,16 @@ def _extract_field(block: str, label_re: str) -> str | None:
 
 
 def _split_structured_blocks(body: str) -> list[str]:
-    """「アイテム N」または「N.」でブロック分割する。"""
-    parts = re.split(r"(?:^アイテム\s*\d+\s*$|^\d+\.\s)", _strip_footer(body), flags=re.MULTILINE)
+    """「アイテム N」「項目 N」または「N.」でブロック分割する。"""
+    parts = re.split(
+        r"(?:^(?:アイテム|項目)\s*\d+\s*$|^\d+\.\s)",
+        _strip_footer(body),
+        flags=re.MULTILINE,
+    )
     # 先頭のヘッダー部分（アイテム番号より前）は除く
     blocks = [p.strip() for p in parts if p.strip()]
-    # Title: を含まないブロック（ヘッダー行等）を除外
-    return [b for b in blocks if re.search(r"^Title:", b, re.MULTILINE)]
+    # タイトルラベルを含まないブロック（ヘッダー行等）を除外
+    return [b for b in blocks if re.search(r"^(?:Title|タイトル)[：:]", b, re.MULTILINE)]
 
 
 def parse_structured_label(body: str) -> list[dict]:
