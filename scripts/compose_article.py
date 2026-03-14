@@ -222,6 +222,65 @@ def _shorten_url(url: str) -> str:
     return domain + path
 
 
+def _category_class(category: str | None) -> str:
+    if not category:
+        return "category--other"
+    mapping = {
+        "Claude Code": "category--claude-code",
+        "Codex": "category--codex",
+        "Enterprise": "category--enterprise",
+        "Prompt Engineering": "category--prompt",
+        "AI Agents": "category--agents",
+        "Research": "category--research",
+        "Skills": "category--skills",
+    }
+    return mapping.get(category, "category--other")
+
+
+def _confidence_class(confidence: int | None) -> str:
+    if confidence is None:
+        return "confidence--unknown"
+    if confidence >= 90:
+        return "confidence--high"
+    if confidence >= 80:
+        return "confidence--midhigh"
+    if confidence >= 70:
+        return "confidence--mid"
+    return "confidence--low"
+
+
+def _render_story_card(item: dict, idx: int, variant: str = "brief") -> str:
+    title = item.get("title") or "（タイトルなし）"
+    summary = item.get("summary") or "要約なし"
+    category = item.get("category") or "Other"
+    confidence = item.get("confidence")
+    x_url = item.get("x_url")
+    related_url = item.get("related_source_url")
+    comment = _editorial_comment(item)
+
+    conf_text = "未確認" if confidence is None else f"{confidence}/100"
+    links = []
+    if x_url:
+        links.append(f'<a href="{x_url}" target="_blank" rel="noopener">Xポスト</a>')
+    if related_url:
+        links.append(f'<a href="{related_url}" target="_blank" rel="noopener">関連リンク</a>')
+    links_html = " ".join(links)
+
+    return f"""
+<article class="story-card {variant}">
+  <div class="story-meta">
+    <span class="story-rank">#{idx}</span>
+    <span class="category-pill {_category_class(category)}">{category}</span>
+    <span class="confidence-pill {_confidence_class(confidence)}">信頼度 {conf_text}</span>
+  </div>
+  <h3>{title}</h3>
+  <p class="story-summary">{summary}</p>
+  <div class="story-links">{links_html}</div>
+  {f'<div class="editor-note"><span>Editor\'s Note</span>{comment}</div>' if comment else ''}
+</article>
+"""
+
+
 # ---- 編集コメント生成 ---------------------------------------------------
 _CATEGORY_COMMENTS: dict[str, str] = {
     "Claude Code":        "Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。",
@@ -277,6 +336,12 @@ def _editorial_comment(item: dict) -> str | None:
 def _build_front_matter(date_str: str, items: list[dict]) -> str:
     cats = _collect_categories(items)
     tags_str = ", ".join(f'"{c}"' for c in cats) if cats else '"AI Agents"'
+    topic_count = len(items)
+    top_categories = cats[:3] if cats else ["AI Agents"]
+    high_conf = len([i for i in items if (i.get("confidence") or 0) >= 80])
+    hero_summary = f"{'・'.join(top_categories)} を中心に {topic_count} 件のトピック"
+
+    top_categories_yaml = "\n".join([f"  - {c}" for c in top_categories])
 
     return f"""---
 layout: post
@@ -284,6 +349,13 @@ title: "日刊AIエージェント {date_str}"
 date: {date_str}
 categories: [AI, エージェント]
 tags: [{tags_str}]
+hero_summary: "{hero_summary}"
+topic_count: {topic_count}
+top_categories:
+{top_categories_yaml}
+high_confidence_count: {high_conf}
+source_name: "Grok / X"
+lead_indices: [0, 1, 2]
 ---"""
 
 
@@ -307,45 +379,113 @@ _COLLECTION_NOTE = """---
 
 
 # ---- 記事全体の組み立て -------------------------------------------------
-def compose_article(date_str: str, items: list[dict]) -> str:
-    # likes の降順 → confidence の降順でソート
-    def sort_key(item: dict):
-        conf  = item.get("confidence") or 0
-        likes = item.get("likes") or 0
-        return (-likes, -conf)
+def _official_signal_score(item: dict) -> int:
+    """
+    公式/一次情報をざっくり点数化。
+    """
+    score = 0
+    text = " ".join([
+        str(item.get("title") or ""),
+        str(item.get("summary") or ""),
+        str(item.get("why_trending") or ""),
+        str(item.get("category") or ""),
+    ]).lower()
+    x_url = (item.get("x_url") or "").lower()
+    related = (item.get("related_source_url") or "").lower()
 
-    sorted_items = sorted(items, key=sort_key)
+    # キーワード
+    for kw in ["公式", "official", "release", "announc", "blog", "guide", "docs"]:
+        if kw in text:
+            score += 8
+
+    # 公式ドメイン
+    for dom in ["claude.com", "openai.com", "github.com", "google.com", "cloud.google.com", "microsoft.com", "anthropic.com"]:
+        if dom in related:
+            score += 12
+
+    # 公式アカウントっぽいハンドル
+    for handle in ["@claudeai", "@openai", "@github", "@googlecloud", "@microsoft", "@anthropicai"]:
+        if handle in x_url:
+            score += 10
+
+    return score
+
+
+def compose_article(date_str: str, items: list[dict]) -> str:
+    # 公式優先 + 信頼度 + likes の重み付け
+    def rank_score(item: dict) -> float:
+        conf = float(item.get("confidence") or 0)
+        likes = float(item.get("likes") or 0)
+        official = float(_official_signal_score(item))
+        # 信頼度を最優先、次に公式性、最後にlikes
+        return conf * 2.0 + official * 1.5 + min(likes, 20000) / 500.0
+
+    sorted_items = sorted(items, key=rank_score, reverse=True)
+    lead_items = sorted_items[:3]
+    other_items = sorted_items[3:]
 
     front_matter = _build_front_matter(date_str, sorted_items)
-    lead         = _generate_lead(date_str, sorted_items)
-    overview     = _generate_summary(sorted_items)
+    lead = _generate_lead(date_str, sorted_items)
+    overview = _generate_summary(sorted_items)
+    cats = _collect_categories(sorted_items)
+    main_cat = cats[0] if cats else "AI Agents"
+    high_conf = len([i for i in sorted_items if (i.get("confidence") or 0) >= 80])
 
-    topic_sections = "\n".join(
-        _topic_section(item, i + 1) for i, item in enumerate(sorted_items)
-    )
+    lead_html = ""
+    if lead_items:
+        first = _render_story_card(lead_items[0], 1, "lead")
+        secondary = "\n".join(_render_story_card(it, i + 2, "secondary") for i, it in enumerate(lead_items[1:]))
+        lead_html = f"""
+<section class="top-stories">
+  <h2>Featured Stories</h2>
+  <div class="lead-grid">
+    {first}
+    <div class="secondary-grid">{secondary}</div>
+  </div>
+</section>
+"""
+
+    briefs_html = ""
+    if other_items:
+        cards = "\n".join(_render_story_card(it, i + 4, "brief") for i, it in enumerate(other_items))
+        briefs_html = f"""
+<section class="news-briefs">
+  <h2>News Briefs</h2>
+  <div class="brief-grid">{cards}</div>
+</section>
+"""
 
     article = f"""{front_matter}
 
-## はじめに
+<section class="mag-hero">
+  <div class="hero-main">
+    <p class="hero-kicker">本日のカバーストーリー</p>
+    <h1>{main_cat} が主役の {len(sorted_items)} 本</h1>
+    <p class="hero-sub">{date_str}号 — {'・'.join(cats[:3]) if cats else 'AI Agents'} を中心に、実装に効く話題を編集</p>
+    <p class="hero-lead">{lead}</p>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card"><span>Topics</span><strong>{len(sorted_items)}</strong></div>
+    <div class="stat-card"><span>High Confidence</span><strong>{high_conf}</strong></div>
+    <div class="stat-card"><span>Main Category</span><strong>{main_cat}</strong></div>
+    <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
+  </div>
+</section>
 
-{lead}
+<section class="editor-overview">
+  <h2>本日の総括</h2>
+  <p>{overview}</p>
+</section>
 
----
+{lead_html}
 
-## 今日の総括
+{briefs_html}
 
-{overview}
+<section class="closing-notes">
+  <h2>本日のまとめ</h2>
+  <p>{_closing_section(sorted_items)}</p>
+</section>
 
----
-
-## 今日のトピック
-
-{topic_sections}
----
-
-## まとめ
-
-{_closing_section(sorted_items)}
 {_COLLECTION_NOTE}"""
 
     return article

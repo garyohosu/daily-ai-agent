@@ -10,38 +10,47 @@ description: "Claude Code・Codexなど開発者向けAIエージェントの最
 <!-- ヒーローセクション（最新記事） -->
 {% if latest %}
 <section class="hero">
-  <div class="hero-label">最新記事</div>
-  <h1>{{ latest.title }}</h1>
-  <div class="hero-date">{{ latest.date | date: "%Y年%-m月%-d日" }}
-    {% for tag in latest.tags %}
-      {% assign tag_key = tag | downcase | replace: ' ', '-' %}
-      &nbsp;<span class="tag tag-{{ tag_key }}" style="font-size:0.7rem;">{{ tag }}</span>
-    {% endfor %}
+  <div class="hero-label">Latest Issue</div>
+  <h1>{{ latest.hero_summary | default: latest.title }}</h1>
+  <div class="hero-date">{{ latest.date | date: "%Y年%-m月%-d日" }}</div>
+  <p class="hero-lead">{{ latest.description | default: "開発者向けAIエージェント動向を、注目順に編集した日刊号" }}</p>
+  <div class="hero-stats" style="margin-top:1rem;">
+    <div class="stat-card"><span>Topics</span><strong>{{ latest.topic_count | default: "-" }}</strong></div>
+    <div class="stat-card"><span>High Confidence</span><strong>{{ latest.high_confidence_count | default: "-" }}</strong></div>
+    <div class="stat-card"><span>Main Category</span><strong>{% if latest.top_categories %}{{ latest.top_categories[0] }}{% else %}-{% endif %}</strong></div>
+    <div class="stat-card"><span>Source</span><strong>{{ latest.source_name | default: "Grok / X" }}</strong></div>
   </div>
-  {% if latest.description %}
-    <p class="hero-lead">{{ latest.description }}</p>
-  {% endif %}
-  <a class="read-more" href="{{ site.baseurl }}{{ latest.url }}">記事を読む →</a>
+  <a class="read-more" href="{{ site.baseurl }}{{ latest.url }}">最新号を読む →</a>
 </section>
 {% endif %}
 
 <!-- 過去記事一覧 -->
-<h2 class="section-title">最近の記事</h2>
+<h2 class="section-title">バックナンバー</h2>
 
-<ul class="archive-list">
-  {% for post in posts limit:20 %}
-  <li>
-    <span class="arc-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-    <span class="arc-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></span>
-    <span class="arc-tags">
-      {% for tag in post.tags %}
-        {% assign tag_key = tag | downcase | replace: ' ', '-' %}
-        <span class="tag tag-{{ tag_key }}">{{ tag }}</span>
-      {% endfor %}
-    </span>
-  </li>
+<div class="brief-grid">
+  {% for post in posts offset:1 limit:20 %}
+  <article class="story-card brief">
+    <div class="story-meta">
+      <span class="story-rank">{{ post.date | date: "%Y-%m-%d" }}</span>
+      {% if post.top_categories and post.top_categories[0] %}
+      <span class="category-pill category--other">{{ post.top_categories[0] }}</span>
+      {% endif %}
+    </div>
+    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+    <p class="story-summary">
+      {% if post.hero_summary %}
+        {{ post.hero_summary }}
+      {% else %}
+        {{ post.description | default: "日刊AIエージェントのバックナンバー" }}
+      {% endif %}
+    </p>
+    <div class="story-links">
+      <a href="{{ site.baseurl }}{{ post.url }}">読む</a>
+      {% if post.topic_count %}<span class="confidence-pill confidence--midhigh">{{ post.topic_count }}件</span>{% endif %}
+    </div>
+  </article>
   {% endfor %}
-</ul>
+</div>
 
 {% if posts.size > 20 %}
 <p style="text-align:center; margin-top:1.5rem;">
