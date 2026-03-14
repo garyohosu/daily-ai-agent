@@ -197,19 +197,36 @@ def _find_body_parts(payload: dict, plain_parts: list, html_parts: list) -> None
             _find_body_parts(part, plain_parts, html_parts)
 
 
-def extract_body(payload: dict) -> tuple[str, bool]:
+def extract_body(payload: dict) -> tuple[str, bool, list[str]]:
+    """
+    Returns:
+      body_text, has_html, html_links
+    """
     plain_parts: list[str] = []
     html_parts: list[str] = []
     _find_body_parts(payload, plain_parts, html_parts)
 
-    if plain_parts:
-        return normalize_text("".join(plain_parts)), bool(html_parts)
-
+    html_links: list[str] = []
+    html_text = ""
     if html_parts:
-        soup = BeautifulSoup("".join(html_parts), "html.parser")
-        return normalize_text(soup.get_text(separator="\n")), True
+        html_raw = "".join(html_parts)
+        soup = BeautifulSoup(html_raw, "html.parser")
+        html_text = normalize_text(soup.get_text(separator="\n"))
+        html_links = [a.get("href", "").strip() for a in soup.find_all("a")]
+        html_links = [u for u in html_links if re.match(r"https?://", u)]
 
-    return "", False
+    plain_text = normalize_text("".join(plain_parts)) if plain_parts else ""
+
+    # plain本文が途中で切れている場合（"Continue reading"）は html本文を優先
+    if plain_text:
+        if re.search(r"continue reading", plain_text, re.IGNORECASE) and html_text and len(html_text) > len(plain_text):
+            return html_text, True, html_links
+        return plain_text, bool(html_parts), html_links
+
+    if html_text:
+        return html_text, True, html_links
+
+    return "", False, []
 
 
 # ---- テキスト正規化 -------------------------------------------------------
@@ -321,8 +338,14 @@ def main() -> None:
 
         payload = detail.get("payload", {})
         headers = extract_headers(payload.get("headers", []))
-        body_text, has_html = extract_body(payload)
+        body_text, has_html, html_links = extract_body(payload)
         x_urls, other_urls = extract_urls(body_text)
+
+        # HTML の href からもURLを回収（本文切れ対策）
+        if html_links:
+            hx, ho = extract_urls("\n".join(html_links))
+            x_urls = list(dict.fromkeys(x_urls + hx))
+            other_urls = list(dict.fromkeys(other_urls + ho))
         date_jst = parse_date_to_jst(headers["date"])
 
         raw_data = {
@@ -340,6 +363,7 @@ def main() -> None:
             "label_ids": detail.get("labelIds", []),
             "x_urls": x_urls,
             "other_urls": other_urls,
+            "html_links": html_links,
             "parse_status": "unparsed",
         }
 
