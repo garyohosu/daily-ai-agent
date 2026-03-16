@@ -1,6 +1,27 @@
 {
   "articles": [
     {
+      "date": "2026-03-16",
+      "title": "日刊AIエージェント 2026-03-16",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-03-16-daily-ai-agent/",
+      "tags": [
+        "Claude Code",
+        "Skills",
+        "Enterprise"
+      ],
+      "file": "2026-03-16-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-03-15",
+      "title": "日刊AIエージェント 2026-03-15",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-03-15-daily-ai-agent/",
+      "tags": [
+        "Workflow",
+        "Claude Code"
+      ],
+      "file": "2026-03-15-daily-ai-agent.md"
+    },
+    {
       "date": "2026-03-14",
       "title": "日刊AIエージェント 2026-03-14",
       "url": "https://garyohosu.github.io/daily-ai-agent/2026-03-14-daily-ai-agent/",
@@ -34,5 +55,5 @@
       "file": "2026-03-12-daily-ai-agent.md"
     }
   ],
-  "updated_at": "2026-03-14T17:06:15.104073+09:00"
+  "updated_at": "2026-03-16T09:04:21.213446+09:00"
 }
