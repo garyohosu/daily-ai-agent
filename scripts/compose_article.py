@@ -22,7 +22,7 @@ POSTS_DIR          = Path("docs/_posts")
 LOGS_DIR           = Path("logs")
 
 JST = ZoneInfo("Asia/Tokyo")
-MIN_ITEMS_PER_DAY = 5
+MIN_ITEMS_PER_DAY = 3
 
 
 # ---- ログ設定 -------------------------------------------------------------
