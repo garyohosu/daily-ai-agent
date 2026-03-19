@@ -1,6 +1,51 @@
 {
   "articles": [
     {
+      "date": "2026-03-20",
+      "title": "日刊AIエージェント 2026-03-20",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-03-20-daily-ai-agent/",
+      "tags": [
+        "Claude Code",
+        "Workflow",
+        "Skills"
+      ],
+      "file": "2026-03-20-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-03-19",
+      "title": "日刊AIエージェント 2026-03-19",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-03-19-daily-ai-agent/",
+      "tags": [
+        "AI Agents"
+      ],
+      "file": "2026-03-19-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-03-18",
+      "title": "日刊AIエージェント 2026-03-18",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-03-18-daily-ai-agent/",
+      "tags": [
+        "Codex",
+        "Skills",
+        "Claude Code",
+        "Local LLM",
+        "Workflow"
+      ],
+      "file": "2026-03-18-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-03-17",
+      "title": "日刊AIエージェント 2026-03-17",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-03-17-daily-ai-agent/",
+      "tags": [
+        "Claude Code",
+        "Skills",
+        "AI Agents",
+        "Local LLM"
+      ],
+      "file": "2026-03-17-daily-ai-agent.md"
+    },
+    {
       "date": "2026-03-16",
       "title": "日刊AIエージェント 2026-03-16",
       "url": "https://garyohosu.github.io/daily-ai-agent/2026-03-16-daily-ai-agent/",
@@ -55,5 +100,5 @@
       "file": "2026-03-12-daily-ai-agent.md"
     }
   ],
-  "updated_at": "2026-03-16T09:04:21.213446+09:00"
+  "updated_at": "2026-03-20T07:30:06.402214+09:00"
 }
