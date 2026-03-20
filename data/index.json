@@ -1,6 +1,17 @@
 {
   "articles": [
     {
+      "date": "2026-03-21",
+      "title": "日刊AIエージェント 2026-03-21",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-03-21-daily-ai-agent/",
+      "tags": [
+        "Codex",
+        "Claude Code",
+        "Prompt Engineering"
+      ],
+      "file": "2026-03-21-daily-ai-agent.md"
+    },
+    {
       "date": "2026-03-20",
       "title": "日刊AIエージェント 2026-03-20",
       "url": "https://garyohosu.github.io/daily-ai-agent/2026-03-20-daily-ai-agent/",
@@ -100,5 +111,5 @@
       "file": "2026-03-12-daily-ai-agent.md"
     }
   ],
-  "updated_at": "2026-03-20T07:30:06.402214+09:00"
+  "updated_at": "2026-03-21T07:30:08.764425+09:00"
 }
