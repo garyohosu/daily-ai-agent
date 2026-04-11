@@ -1,6 +1,35 @@
 {
   "articles": [
     {
+      "date": "2026-04-12",
+      "title": "日刊AIエージェント 2026-04-12",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-04-12-daily-ai-agent/",
+      "tags": [
+        "Claude Code",
+        "Codex"
+      ],
+      "file": "2026-04-12-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-04-11",
+      "title": "日刊AIエージェント 2026-04-11",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-04-11-daily-ai-agent/",
+      "tags": [
+        "Claude Code"
+      ],
+      "file": "2026-04-11-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-04-10",
+      "title": "日刊AIエージェント 2026-04-10",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-04-10-daily-ai-agent/",
+      "tags": [
+        "Codex",
+        "Claude Code"
+      ],
+      "file": "2026-04-10-daily-ai-agent.md"
+    },
+    {
       "date": "2026-04-09",
       "title": "日刊AIエージェント 2026-04-09",
       "url": "https://garyohosu.github.io/daily-ai-agent/2026-04-09-daily-ai-agent/",
@@ -278,5 +307,5 @@
       "file": "2026-03-12-daily-ai-agent.md"
     }
   ],
-  "updated_at": "2026-04-09T07:30:28.783727+09:00"
+  "updated_at": "2026-04-12T07:30:08.310936+09:00"
 }
