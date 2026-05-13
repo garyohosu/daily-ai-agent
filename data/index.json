@@ -1,6 +1,77 @@
 {
   "articles": [
     {
+      "date": "2026-05-13",
+      "title": "日刊AIエージェント 2026-05-13",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-05-13-daily-ai-agent/",
+      "tags": [
+        "Skills",
+        "Claude Code",
+        "Codex"
+      ],
+      "file": "2026-05-13-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-05-12",
+      "title": "日刊AIエージェント 2026-05-12",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-05-12-daily-ai-agent/",
+      "tags": [
+        "Claude Code",
+        "Enterprise"
+      ],
+      "file": "2026-05-12-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-05-11",
+      "title": "日刊AIエージェント 2026-05-11",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-05-11-daily-ai-agent/",
+      "tags": [
+        "Claude Code",
+        "AI Agents"
+      ],
+      "file": "2026-05-11-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-05-10",
+      "title": "日刊AIエージェント 2026-05-10",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-05-10-daily-ai-agent/",
+      "tags": [
+        "Claude Code",
+        "Prompt Engineering"
+      ],
+      "file": "2026-05-10-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-05-09",
+      "title": "日刊AIエージェント 2026-05-09",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-05-09-daily-ai-agent/",
+      "tags": [
+        "Claude Code",
+        "Codex",
+        "VS Code"
+      ],
+      "file": "2026-05-09-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-05-08",
+      "title": "日刊AIエージェント 2026-05-08",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-05-08-daily-ai-agent/",
+      "tags": [
+        "Claude Code"
+      ],
+      "file": "2026-05-08-daily-ai-agent.md"
+    },
+    {
+      "date": "2026-05-07",
+      "title": "日刊AIエージェント 2026-05-07",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-05-07-daily-ai-agent/",
+      "tags": [
+        "Claude Code",
+        "Skills"
+      ],
+      "file": "2026-05-07-daily-ai-agent.md"
+    },
+    {
       "date": "2026-05-01",
       "title": "日刊AIエージェント 2026-05-01",
       "url": "https://garyohosu.github.io/daily-ai-agent/2026-05-01-daily-ai-agent/",
@@ -437,5 +508,5 @@
       "file": "2026-03-12-daily-ai-agent.md"
     }
   ],
-  "updated_at": "2026-05-01T07:37:30.166560+09:00"
+  "updated_at": "2026-05-13T13:59:51.594288+09:00"
 }
