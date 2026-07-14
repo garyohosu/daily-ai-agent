@@ -10,6 +10,7 @@ Required packages:
 """
 
 import base64
+import argparse
 import json
 import logging
 import re
@@ -19,6 +20,7 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 from bs4 import BeautifulSoup
+from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -32,11 +34,19 @@ TOKEN_PATH = Path("token.json")
 LOGS_DIR = Path("logs")
 DATA_RAW_DIR = Path("data/raw")
 FETCHED_IDS_PATH = Path("data/fetched_ids.json")
-MAX_RESULTS = 10
+DEFAULT_MAX_RESULTS = 10
+DEFAULT_DAYS_BACK = 7
 RETRY_MAX = 3
 RETRY_INTERVAL = 3  # 秒
 
 JST = timezone(datetime.now(timezone.utc).astimezone().utcoffset())
+
+_SKIP_SUBJECT_PATTERNS = [
+    re.compile(r"^new login to your xai account$", re.IGNORECASE),
+    re.compile(r"^verify your xai email$", re.IGNORECASE),
+    re.compile(r"^your credits are running low$", re.IGNORECASE),
+    re.compile(r"^you've received new credits in grok build$", re.IGNORECASE),
+]
 
 
 # ---- ログ設定 -------------------------------------------------------------
@@ -75,12 +85,27 @@ def load_gmail_service():
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
+            try:
+                creds.refresh(Request())
+            except RefreshError as error:
+                logger.warning(f"token refresh 失敗。再認証に切り替えます: {error}")
+                creds = None
+                try:
+                    TOKEN_PATH.unlink()
+                except FileNotFoundError:
+                    pass
+
+        if not creds or not creds.valid:
             if not CREDENTIALS_PATH.exists():
                 raise FileNotFoundError(f"credentials.json が見つかりません: {CREDENTIALS_PATH.resolve()}")
             flow = InstalledAppFlow.from_client_secrets_file(str(CREDENTIALS_PATH), SCOPES)
-            creds = flow.run_local_server(port=0)
+            creds = flow.run_local_server(
+                port=0,
+                open_browser=False,
+                authorization_prompt_message=(
+                    "Open this URL in your browser to authorize Gmail access:\n{url}\n"
+                ),
+            )
 
         TOKEN_PATH.write_text(creds.to_json(), encoding="utf-8")
         logger.info("token.json を保存しました")
@@ -91,14 +116,15 @@ def load_gmail_service():
 
 
 # ---- 検索クエリ -----------------------------------------------------------
-def build_search_queries() -> list[str]:
+def build_search_queries(days_back: int = DEFAULT_DAYS_BACK, all_history: bool = False) -> list[str]:
+    history_suffix = "" if all_history else f" newer_than:{days_back}d"
     return [
-        "from:noreply@x.ai to:garyohosu@gmail.com newer_than:7d",
-        "from:noreply@x.ai newer_than:7d",
-        'from:noreply@x.ai subject:"Claude Code" newer_than:7d',
-        "from:noreply@x.ai subject:AI newer_than:7d",
-        "from:noreply@x.ai subject:Grok newer_than:7d",
-        "from:noreply@x.ai subject:バズ newer_than:7d",
+        f"from:noreply@x.ai to:garyohosu@gmail.com{history_suffix}",
+        f"from:noreply@x.ai{history_suffix}",
+        f'from:noreply@x.ai subject:"Claude Code"{history_suffix}',
+        f"from:noreply@x.ai subject:AI{history_suffix}",
+        f"from:noreply@x.ai subject:Grok{history_suffix}",
+        f"from:noreply@x.ai subject:バズ{history_suffix}",
     ]
 
 
@@ -264,6 +290,11 @@ def parse_date_to_jst(date_str: str) -> str:
         return datetime.now(JST).strftime("%Y-%m-%d")
 
 
+def should_skip_message(subject: str) -> bool:
+    normalized = subject.strip()
+    return any(pattern.match(normalized) for pattern in _SKIP_SUBJECT_PATTERNS)
+
+
 # ---- raw JSON 保存 -------------------------------------------------------
 def save_raw_json(data: dict, date_str: str, message_id: str) -> Path:
     DATA_RAW_DIR.mkdir(parents=True, exist_ok=True)
@@ -273,8 +304,20 @@ def save_raw_json(data: dict, date_str: str, message_id: str) -> Path:
 
 
 # ---- メイン --------------------------------------------------------------
-def main() -> None:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="fetch_gmail.py: Gmail から Grok メールを取得")
+    parser.add_argument("--days-back", type=int, default=DEFAULT_DAYS_BACK, help="検索対象の日数。既定は 7 日")
+    parser.add_argument("--all-history", action="store_true", help="過去全履歴を検索する")
+    parser.add_argument("--max-results", type=int, default=DEFAULT_MAX_RESULTS, help="各検索クエリの最大取得件数")
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> None:
+    args = parse_args(argv)
     logger.info("=== fetch_gmail.py 開始 ===")
+    logger.info(
+        f"検索条件: days_back={args.days_back} all_history={args.all_history} max_results={args.max_results}"
+    )
     fetched_at = datetime.now(JST).isoformat()
 
     # 認証
@@ -297,10 +340,10 @@ def main() -> None:
     hit_messages: list[dict] = []
     used_query = ""
 
-    for query in build_search_queries():
+    for query in build_search_queries(days_back=args.days_back, all_history=args.all_history):
         logger.info(f"検索クエリ: {query}")
         try:
-            hits = search_messages(service, query, MAX_RESULTS)
+            hits = search_messages(service, query, args.max_results)
         except Exception as e:
             logger.error(f"検索エラー: {e}")
             continue
@@ -340,6 +383,15 @@ def main() -> None:
         headers = extract_headers(payload.get("headers", []))
         body_text, has_html, html_links = extract_body(payload)
         x_urls, other_urls = extract_urls(body_text)
+
+        if should_skip_message(headers["subject"]):
+            logger.info(f"  運用メールを除外: {headers['subject']}")
+            try:
+                save_fetched_id(mid)
+            except Exception:
+                logger.error(f"fetched_ids.json 更新失敗 id={mid} — 次回再取得の可能性あり")
+            skipped += 1
+            continue
 
         # HTML の href からもURLを回収（本文切れ対策）
         if html_links:

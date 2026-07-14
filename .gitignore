@@ -3,3 +3,10 @@ token.json
 *.pyc
 __pycache__/
 .env
+.venv/
+.venv312/
+logs/*.log
+data/raw/*.json
+data/processed/*.json
+data/dedupe_index.json
+data/fetched_ids.json

@@ -34,7 +34,9 @@ DATA_PROCESSED_DIR = Path("data/processed")
 DEDUPE_INDEX_PATH = Path("data/dedupe_index.json")
 LOGS_DIR = Path("logs")
 
-TITLE_SIM_THRESHOLD = 0.5   # bigram Jaccard 類似度の閾値
+# 0.5 だと「Claude Code自動化」系の別トピックまで潰しやすい。
+# かなり近い言い換えだけを重複扱いに寄せる。
+TITLE_SIM_THRESHOLD = 0.75   # bigram Jaccard 類似度の閾値
 
 JST = timezone(datetime.now(timezone.utc).astimezone().utcoffset())
 

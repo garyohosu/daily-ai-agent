@@ -22,6 +22,7 @@ scripts/main.py
 
 import argparse
 import logging
+import os
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -30,6 +31,7 @@ from zoneinfo import ZoneInfo
 # ---- 設定 ---------------------------------------------------------------
 LOGS_DIR = Path("logs")
 JST = ZoneInfo("Asia/Tokyo")
+DEDUPE_INDEX_PATH = Path("data/dedupe_index.json")
 
 
 # ---- ログ設定 -------------------------------------------------------------
@@ -89,17 +91,37 @@ def main() -> None:
     parser.add_argument("--dry-run",      action="store_true", help="git push しない")
     parser.add_argument("--skip-fetch",   action="store_true", help="Gmail 取得をスキップ")
     parser.add_argument("--skip-publish", action="store_true", help="公開フェーズをスキップ")
+    parser.add_argument("--fetch-days-back", type=int, default=7, help="Gmail 検索対象の日数。既定は 7 日")
+    parser.add_argument("--fetch-max-results", type=int, default=10, help="Gmail 検索クエリごとの最大取得件数")
+    parser.add_argument("--fetch-all-history", action="store_true", help="Gmail を過去全履歴から取得する")
+    parser.add_argument("--rebuild-dedupe-index", action="store_true", help="dedupe index を削除して全件再構築する")
     args = parser.parse_args()
 
     logger.info("=" * 60)
     logger.info("=== 日刊AIエージェント パイプライン 開始 ===")
-    logger.info(f"    dry_run={args.dry_run}  skip_fetch={args.skip_fetch}  skip_publish={args.skip_publish}")
+    logger.info(
+        "    dry_run=%s  skip_fetch=%s  skip_publish=%s  fetch_days_back=%s"
+        "  fetch_max_results=%s  fetch_all_history=%s  rebuild_dedupe_index=%s",
+        args.dry_run,
+        args.skip_fetch,
+        args.skip_publish,
+        args.fetch_days_back,
+        args.fetch_max_results,
+        args.fetch_all_history,
+        args.rebuild_dedupe_index,
+    )
     logger.info("=" * 60)
 
     # --- Phase 1: Gmail 取得 ----------------------------------------------
     if not args.skip_fetch:
         import fetch_gmail
-        ok = run_phase("fetch_gmail", fetch_gmail.main)
+        fetch_args: list[str] = [
+            "--days-back", str(args.fetch_days_back),
+            "--max-results", str(args.fetch_max_results),
+        ]
+        if args.fetch_all_history:
+            fetch_args.append("--all-history")
+        ok = run_phase("fetch_gmail", lambda: fetch_gmail.main(fetch_args))
         if not ok:
             logger.error("fetch_gmail 失敗。以降のフェーズをスキップします")
             sys.exit(1)
@@ -122,6 +144,9 @@ def main() -> None:
 
     # --- Phase 4: 重複除去 -------------------------------------------------
     import dedupe_items
+    if args.rebuild_dedupe_index and DEDUPE_INDEX_PATH.exists():
+        logger.info(f"dedupe index 再構築: {DEDUPE_INDEX_PATH} を削除します")
+        DEDUPE_INDEX_PATH.unlink()
     ok = run_phase("dedupe_items", dedupe_items.main)
     if not ok:
         logger.error("dedupe_items 失敗。以降のフェーズをスキップします")
@@ -157,7 +182,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     # scripts/ ディレクトリを sys.path に追加して各モジュールを import できるようにする
-    import os
     scripts_dir = Path(__file__).parent
     repo_root   = scripts_dir.parent
     if str(scripts_dir) not in sys.path:

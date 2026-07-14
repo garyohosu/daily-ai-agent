@@ -26,8 +26,12 @@ Grok Task (06:30 JST)
 ### 依存パッケージのインストール
 
 ```bash
+python3.12 -m venv .venv312
+. .venv312/bin/activate
 pip install beautifulsoup4 google-auth google-auth-oauthlib google-api-python-client
 ```
+
+このリポジトリは `zoneinfo` と新しめの型構文を使っているので、実行は `Python 3.12` 前提に揃える。
 
 ### Gmail API 認証
 
@@ -48,6 +52,9 @@ python scripts/main.py --skip-fetch
 
 # 記事生成まで行い、公開（git push）しない
 python scripts/main.py --skip-publish
+
+# 過去メールまで遡って再取得し、dedupe index を再構築
+python scripts/main.py --fetch-all-history --fetch-max-results 200 --rebuild-dedupe-index
 
 # index.json 更新のみ（git push しない）
 python scripts/publish_site.py --dry-run
@@ -70,7 +77,7 @@ OpenClaw の Cron 設定に以下を登録する。
 
 **メッセージ（コピー用）**:
 ```
-作業ディレクトリ /home/garyo/daily-ai-agent で python scripts/main.py を実行してください。失敗時はエラーログ logs/main-YYYY-MM-DD.log を確認して報告してください。
+作業ディレクトリ /home/garyo/daily-ai-agent で . .venv312/bin/activate && python scripts/main.py を実行してください。失敗時はエラーログ logs/main-YYYY-MM-DD.log を確認して報告してください。
 ```
 
 ### 実行タイミングの根拠
