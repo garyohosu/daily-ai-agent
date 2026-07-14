@@ -42,13 +42,13 @@ lead_indices: [0, 1, 2]
 <article class="story-card lead">
   <div class="story-meta">
     <span class="story-rank">#1</span>
-    <span class="category-pill category--other">Other</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
   <h3>Claude公式カンファレンス発表</h3>
   <p class="story-summary">来週Code with Claude開催。開発者向けセッション登録呼びかけ</p>
   <div class="story-links"><a href="https://x.com/claudeai/status/2050252933866930339" target="_blank" rel="noopener">Xポスト</a></div>
-  
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 
     <div class="secondary-grid">
