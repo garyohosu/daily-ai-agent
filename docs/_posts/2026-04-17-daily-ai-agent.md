@@ -55,27 +55,6 @@ lead_indices: [0, 1, 2]
 <article class="story-card secondary">
   <div class="story-meta">
     <span class="story-rank">#2</span>
-    <span class="category-pill category--other">Other</span>
-    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
-  </div>
-  <h3>New login to your xAI account</h3>
-  <p class="story-summary">Your xAI account has been accessed from a new IP address
-
-We've noticed a new login
-
-Hi hantani,
-
-This is a routine security alert. Someone logged into your xAI account from a new IP address:
-
-Time:</p>
-  <div class="story-links"></div>
-  
-</article>
-
-
-<article class="story-card secondary">
-  <div class="story-meta">
-    <span class="story-rank">#3</span>
     <span class="category-pill category--codex">Codex</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -83,6 +62,19 @@ Time:</p>
   <p class="story-summary">Macアプリ連携・記憶機能追加で繰り返しタスク自動化</p>
   <div class="story-links"><a href="https://x.com/OpenAI/status/2044827705406062670" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Codex 関連。他エージェントとの比較検討に役立つかもしれない。</div>
+</article>
+
+
+<article class="story-card secondary">
+  <div class="story-meta">
+    <span class="story-rank">#3</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Claude Code Opus 4.7</h3>
+  <p class="story-summary">長時間タスク精密処理でエージェント性向上</p>
+  <div class="story-links"><a href="https://x.com/bcherny/status/2044802532388774313" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 </div>
   </div>
@@ -96,13 +88,13 @@ Time:</p>
 <article class="story-card brief">
   <div class="story-meta">
     <span class="story-rank">#4</span>
-    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="category-pill category--codex">Codex</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Code Opus 4.7</h3>
-  <p class="story-summary">長時間タスク精密処理でエージェント性向上</p>
-  <div class="story-links"><a href="https://x.com/bcherny/status/2044802532388774313" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+  <h3>Claude vs Codex比較</h3>
+  <p class="story-summary">8万行実務でCodex堅実性を実証、監視不要</p>
+  <div class="story-links"><a href="https://x.com/HayattiQ/status/2044590331891748950" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Codex 関連。他エージェントとの比較検討に役立つかもしれない。</div>
 </article>
 </div>
 </section>

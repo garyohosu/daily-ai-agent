@@ -4,8 +4,8 @@ title: "日刊AIエージェント 2026-05-11"
 date: 2026-05-11
 categories: [AI, エージェント]
 tags: ["Claude Code", "AI Agents"]
-hero_summary: "Claude Code・AI Agents を中心に 4 件のトピック"
-topic_count: 4
+hero_summary: "Claude Code・AI Agents を中心に 5 件のトピック"
+topic_count: 5
 top_categories:
   - Claude Code
   - AI Agents
@@ -17,12 +17,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Claude Code が主役の 4 本</h1>
+    <h1>Claude Code が主役の 5 本</h1>
     <p class="hero-sub">2026-05-11号 — Claude Code・AI Agents を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-05-11 は、Claude Code・AI Agents を中心に 4 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <p class="hero-lead">本日 2026-05-11 は、Claude Code・AI Agents を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>4</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>5</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Claude Code</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -68,13 +68,13 @@ lead_indices: [0, 1, 2]
 <article class="story-card secondary">
   <div class="story-meta">
     <span class="story-rank">#3</span>
-    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="category-pill category--agents">AI Agents</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Code副業レビュー</h3>
-  <p class="story-summary">未経験パパのアプリ開発。コードレビューで全面書き直しの失敗談と学び。</p>
-  <div class="story-links"><a href="https://x.com/yusuke_papa_dev/status/2053577284410294654" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+  <h3>CLAUDE.md活用Tips</h3>
+  <p class="story-summary">AGENTS.mdでプロジェクトルール定義。毎回説明不要の効率化実践。</p>
+  <div class="story-links"><a href="https://x.com/xNATSUGONx/status/2053316619170873611" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>AI エージェント全般に影響しうるトピック。動向把握に。</div>
 </article>
 </div>
   </div>
@@ -88,6 +88,19 @@ lead_indices: [0, 1, 2]
 <article class="story-card brief">
   <div class="story-meta">
     <span class="story-rank">#4</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Claude Code副業レビュー</h3>
+  <p class="story-summary">未経験パパのアプリ開発。コードレビューで全面書き直しの失敗談と学び。</p>
+  <div class="story-links"><a href="https://x.com/yusuke_papa_dev/status/2053577284410294654" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+</article>
+
+
+<article class="story-card brief">
+  <div class="story-meta">
+    <span class="story-rank">#5</span>
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>

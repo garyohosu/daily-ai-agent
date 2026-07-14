@@ -4,8 +4,8 @@ title: "日刊AIエージェント 2026-04-06"
 date: 2026-04-06
 categories: [AI, エージェント]
 tags: ["Claude Code"]
-hero_summary: "Claude Code を中心に 5 件のトピック"
-topic_count: 5
+hero_summary: "Claude Code を中心に 3 件のトピック"
+topic_count: 3
 top_categories:
   - Claude Code
 high_confidence_count: 0
@@ -16,12 +16,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Claude Code が主役の 5 本</h1>
+    <h1>Claude Code が主役の 3 本</h1>
     <p class="hero-sub">2026-04-06号 — Claude Code を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-04-06 は、Claude Code を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <p class="hero-lead">本日 2026-04-06 は、Claude Code を中心に 3 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>5</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>3</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Claude Code</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -44,9 +44,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Codeエージェントスキルガイド</h3>
-  <p class="story-summary">セットアップ・コマンド・エージェントスキル実践ガイド</p>
-  <div class="story-links"><a href="https://x.com/tom_doerr/status/2040347690966429731" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>Claude Code UI設計システム完全マッチ</h3>
+  <p class="story-summary">汎用AIデザイン排除、正確システム準拠生成</p>
+  <div class="story-links"><a href="https://x.com/RoundtableSpace/status/2040704744629424569" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 
@@ -57,9 +57,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Code UI設計システム完全マッチ</h3>
-  <p class="story-summary">汎用AIデザイン排除、正確システム準拠生成</p>
-  <div class="story-links"><a href="https://x.com/RoundtableSpace/status/2040704744629424569" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>日本人開発者Codex・Claude Code比較</h3>
+  <p class="story-summary">Claude Code並ぶ必須ツール爆速アップデート</p>
+  <div class="story-links"><a href="https://x.com/MakeAI_CEO/status/2040780561539883279" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 
@@ -70,46 +70,16 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>日本人開発者Codex・Claude Code比較</h3>
-  <p class="story-summary">Claude Code並ぶ必須ツール爆速アップデート</p>
-  <div class="story-links"><a href="https://x.com/MakeAI_CEO/status/2040780561539883279" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
-</article>
-</div>
-  </div>
-</section>
-
-
-
-<section class="news-briefs">
-  <h2>News Briefs</h2>
-  <div class="brief-grid">
-<article class="story-card brief">
-  <div class="story-meta">
-    <span class="story-rank">#4</span>
-    <span class="category-pill category--claude-code">Claude Code</span>
-    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
-  </div>
-  <h3>Claude Codeで仕事完全自動化事例</h3>
-  <p class="story-summary">開発者1週末で全業務自動化の実践</p>
-  <div class="story-links"><a href="https://x.com/RoundtableSpace/status/2040476061041889519" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
-</article>
-
-
-<article class="story-card brief">
-  <div class="story-meta">
-    <span class="story-rank">#5</span>
-    <span class="category-pill category--claude-code">Claude Code</span>
-    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
-  </div>
   <h3>Claude Code CLAUDE.md自己改善法</h3>
   <p class="story-summary">Anthropic内部テンプレートでエージェント強化</p>
   <div class="story-links"><a href="https://x.com/Suryanshti777/status/2040356772951544305" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 </div>
+  </div>
 </section>
+
+
 
 
 <section class="closing-notes">

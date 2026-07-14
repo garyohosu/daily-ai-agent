@@ -3,12 +3,11 @@ layout: post
 title: "日刊AIエージェント 2026-07-12"
 date: 2026-07-12
 categories: [AI, エージェント]
-tags: ["Skills", "Workflow", "Claude Code"]
-hero_summary: "Skills・Workflow・Claude Code を中心に 4 件のトピック"
-topic_count: 4
+tags: ["Skills", "Claude Code"]
+hero_summary: "Skills・Claude Code を中心に 3 件のトピック"
+topic_count: 3
 top_categories:
   - Skills
-  - Workflow
   - Claude Code
 high_confidence_count: 0
 source_name: "Grok / X"
@@ -18,12 +17,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Skills が主役の 4 本</h1>
-    <p class="hero-sub">2026-07-12号 — Skills・Workflow・Claude Code を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-07-12 は、Skills・Workflow・Claude Code を中心に 4 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <h1>Skills が主役の 3 本</h1>
+    <p class="hero-sub">2026-07-12号 — Skills・Claude Code を中心に、実装に効く話題を編集</p>
+    <p class="hero-lead">本日 2026-07-12 は、Skills・Claude Code を中心に 3 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>4</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>3</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Skills</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -43,19 +42,6 @@ lead_indices: [0, 1, 2]
 <article class="story-card lead">
   <div class="story-meta">
     <span class="story-rank">#1</span>
-    <span class="category-pill category--other">Workflow</span>
-    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
-  </div>
-  <h3>Claude.md活用術</h3>
-  <p class="story-summary">KarpathyチームのClaude.mdをワークフローに導入で推論が劇的に向上。</p>
-  <div class="story-links"><a href="https://x.com/cyrilXBT/status/2075760989090246864" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>開発ワークフロー改善のヒントになりうる話題。</div>
-</article>
-
-    <div class="secondary-grid">
-<article class="story-card secondary">
-  <div class="story-meta">
-    <span class="story-rank">#2</span>
     <span class="category-pill category--skills">Skills</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -65,10 +51,10 @@ lead_indices: [0, 1, 2]
   <div class="editor-note"><span>Editor's Note</span>Agent Skills 関連。実装者向けの具体的な情報。</div>
 </article>
 
-
+    <div class="secondary-grid">
 <article class="story-card secondary">
   <div class="story-meta">
-    <span class="story-rank">#3</span>
+    <span class="story-rank">#2</span>
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -77,18 +63,11 @@ lead_indices: [0, 1, 2]
   <div class="story-links"><a href="https://x.com/KhusbooT14835/status/2075795864975757586" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
-</div>
-  </div>
-</section>
 
 
-
-<section class="news-briefs">
-  <h2>News Briefs</h2>
-  <div class="brief-grid">
-<article class="story-card brief">
+<article class="story-card secondary">
   <div class="story-meta">
-    <span class="story-rank">#4</span>
+    <span class="story-rank">#3</span>
     <span class="category-pill category--skills">Skills</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -98,13 +77,16 @@ lead_indices: [0, 1, 2]
   <div class="editor-note"><span>Editor's Note</span>Agent Skills 関連。実装者向けの具体的な情報。</div>
 </article>
 </div>
+  </div>
 </section>
+
+
 
 
 <section class="closing-notes">
   <h2>本日のまとめ</h2>
   <p>本日の日刊AIエージェントは以上です。
-引き続き **Skills・Workflow・Claude Code** の動向に注目していきます。
+引き続き **Skills・Claude Code** の動向に注目していきます。
 </p>
 </section>
 

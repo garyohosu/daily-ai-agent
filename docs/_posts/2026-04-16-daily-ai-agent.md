@@ -4,8 +4,8 @@ title: "日刊AIエージェント 2026-04-16"
 date: 2026-04-16
 categories: [AI, エージェント]
 tags: ["Claude Code", "AI Agents"]
-hero_summary: "Claude Code・AI Agents を中心に 8 件のトピック"
-topic_count: 8
+hero_summary: "Claude Code・AI Agents を中心に 7 件のトピック"
+topic_count: 7
 top_categories:
   - Claude Code
   - AI Agents
@@ -17,12 +17,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Claude Code が主役の 8 本</h1>
+    <h1>Claude Code が主役の 7 本</h1>
     <p class="hero-sub">2026-04-16号 — Claude Code・AI Agents を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-04-16 は、Claude Code・AI Agents を中心に 8 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <p class="hero-lead">本日 2026-04-16 は、Claude Code・AI Agents を中心に 7 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>8</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>7</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Claude Code</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -58,9 +58,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Code Routines 研究プレビュー</h3>
-  <p class="story-summary">プロンプト設定でスケジュール実行、ラップトップ不要</p>
-  <div class="story-links"><a href="https://x.com/claudeai/status/2044095086460309790" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>Claude Code UI即時コピー</h3>
+  <p class="story-summary">任意ウェブUIをスキャンしデザイン再構築・コード生成</p>
+  <div class="story-links"><a href="https://x.com/RoundtableSpace/status/2044177628274536664" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 
@@ -68,13 +68,13 @@ lead_indices: [0, 1, 2]
 <article class="story-card secondary">
   <div class="story-meta">
     <span class="story-rank">#3</span>
-    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="category-pill category--other">Other</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Code UI即時コピー</h3>
-  <p class="story-summary">任意ウェブUIをスキャンしデザイン再構築・コード生成</p>
-  <div class="story-links"><a href="https://x.com/RoundtableSpace/status/2044177628274536664" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+  <h3>Claude 思考深度最大化Tips</h3>
+  <p class="story-summary">カスタム指示で徹底推論強制、浅い回答を改善</p>
+  <div class="story-links"><a href="https://x.com/om_patel5/status/2043850515100934494" target="_blank" rel="noopener">Xポスト</a></div>
+  
 </article>
 </div>
   </div>
@@ -88,19 +88,6 @@ lead_indices: [0, 1, 2]
 <article class="story-card brief">
   <div class="story-meta">
     <span class="story-rank">#4</span>
-    <span class="category-pill category--other">Other</span>
-    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
-  </div>
-  <h3>Claude 思考深度最大化Tips</h3>
-  <p class="story-summary">カスタム指示で徹底推論強制、浅い回答を改善</p>
-  <div class="story-links"><a href="https://x.com/om_patel5/status/2043850515100934494" target="_blank" rel="noopener">Xポスト</a></div>
-  
-</article>
-
-
-<article class="story-card brief">
-  <div class="story-meta">
-    <span class="story-rank">#5</span>
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -113,7 +100,7 @@ lead_indices: [0, 1, 2]
 
 <article class="story-card brief">
   <div class="story-meta">
-    <span class="story-rank">#6</span>
+    <span class="story-rank">#5</span>
     <span class="category-pill category--agents">AI Agents</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -126,7 +113,7 @@ lead_indices: [0, 1, 2]
 
 <article class="story-card brief">
   <div class="story-meta">
-    <span class="story-rank">#7</span>
+    <span class="story-rank">#6</span>
     <span class="category-pill category--other">Other</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -139,7 +126,7 @@ lead_indices: [0, 1, 2]
 
 <article class="story-card brief">
   <div class="story-meta">
-    <span class="story-rank">#8</span>
+    <span class="story-rank">#7</span>
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>

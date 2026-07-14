@@ -3,13 +3,13 @@ layout: post
 title: "日刊AIエージェント 2026-03-15"
 date: 2026-03-15
 categories: [AI, エージェント]
-tags: ["Workflow", "Claude Code", "Enterprise"]
-hero_summary: "Workflow・Claude Code・Enterprise を中心に 3 件のトピック"
-topic_count: 3
+tags: ["Workflow", "Claude Code", "Codex", "Enterprise"]
+hero_summary: "Workflow・Claude Code・Codex を中心に 4 件のトピック"
+topic_count: 4
 top_categories:
   - Workflow
   - Claude Code
-  - Enterprise
+  - Codex
 high_confidence_count: 0
 source_name: "Grok / X"
 lead_indices: [0, 1, 2]
@@ -18,12 +18,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Workflow が主役の 3 本</h1>
-    <p class="hero-sub">2026-03-15号 — Workflow・Claude Code・Enterprise を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-03-15 は、Workflow・Claude Code・Enterprise を中心に 3 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <h1>Workflow が主役の 4 本</h1>
+    <p class="hero-sub">2026-03-15号 — Workflow・Claude Code・Codex を中心に、実装に効く話題を編集</p>
+    <p class="hero-lead">本日 2026-03-15 は、Workflow・Claude Code・Codex を中心に 4 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>3</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>4</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Workflow</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -69,6 +69,26 @@ lead_indices: [0, 1, 2]
 <article class="story-card secondary">
   <div class="story-meta">
     <span class="story-rank">#3</span>
+    <span class="category-pill category--codex">Codex</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Codex/Claude比較</h3>
+  <p class="story-summary">UIデザインでOpus 4.6優位、Skill活用例</p>
+  <div class="story-links"><a href="https://x.com/vikingmute/status/2032817426979860936" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Codex 関連。他エージェントとの比較検討に役立つかもしれない。</div>
+</article>
+</div>
+  </div>
+</section>
+
+
+
+<section class="news-briefs">
+  <h2>News Briefs</h2>
+  <div class="brief-grid">
+<article class="story-card brief">
+  <div class="story-meta">
+    <span class="story-rank">#4</span>
     <span class="category-pill category--enterprise">Enterprise</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -78,16 +98,13 @@ lead_indices: [0, 1, 2]
   <div class="editor-note"><span>Editor's Note</span>企業導入・業務活用を検討中の方に参考になる事例。</div>
 </article>
 </div>
-  </div>
 </section>
-
-
 
 
 <section class="closing-notes">
   <h2>本日のまとめ</h2>
   <p>本日の日刊AIエージェントは以上です。
-引き続き **Workflow・Claude Code・Enterprise** の動向に注目していきます。
+引き続き **Workflow・Claude Code・Codex・Enterprise** の動向に注目していきます。
 </p>
 </section>
 

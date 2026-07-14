@@ -3,12 +3,13 @@ layout: post
 title: "日刊AIエージェント 2026-04-18"
 date: 2026-04-18
 categories: [AI, エージェント]
-tags: ["Prompt Engineering", "Codex"]
-hero_summary: "Prompt Engineering・Codex を中心に 2 件のトピック"
-topic_count: 2
+tags: ["Prompt Engineering", "Codex", "AI Agents"]
+hero_summary: "Prompt Engineering・Codex・AI Agents を中心に 3 件のトピック"
+topic_count: 3
 top_categories:
   - Prompt Engineering
   - Codex
+  - AI Agents
 high_confidence_count: 0
 source_name: "Grok / X"
 lead_indices: [0, 1, 2]
@@ -17,12 +18,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Prompt Engineering が主役の 2 本</h1>
-    <p class="hero-sub">2026-04-18号 — Prompt Engineering・Codex を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-04-18 は、Prompt Engineering・Codex を中心に 2 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <h1>Prompt Engineering が主役の 3 本</h1>
+    <p class="hero-sub">2026-04-18号 — Prompt Engineering・Codex・AI Agents を中心に、実装に効く話題を編集</p>
+    <p class="hero-lead">本日 2026-04-18 は、Prompt Engineering・Codex・AI Agents を中心に 3 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>2</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>3</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Prompt Engineering</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -63,6 +64,19 @@ lead_indices: [0, 1, 2]
   <div class="story-links"><a href="https://x.com/masahirochaen/status/2044898727278854491" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Codex 関連。他エージェントとの比較検討に役立つかもしれない。</div>
 </article>
+
+
+<article class="story-card secondary">
+  <div class="story-meta">
+    <span class="story-rank">#3</span>
+    <span class="category-pill category--agents">AI Agents</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>AIエージェント構築正解</h3>
+  <p class="story-summary">Anthropicエンジニア14分動画で設計本質解説。実務効率化</p>
+  <div class="story-links"><a href="https://x.com/ClaudeCode_love/status/2044984781377814940" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>AI エージェント全般に影響しうるトピック。動向把握に。</div>
+</article>
 </div>
   </div>
 </section>
@@ -73,7 +87,7 @@ lead_indices: [0, 1, 2]
 <section class="closing-notes">
   <h2>本日のまとめ</h2>
   <p>本日の日刊AIエージェントは以上です。
-引き続き **Prompt Engineering・Codex** の動向に注目していきます。
+引き続き **Prompt Engineering・Codex・AI Agents** の動向に注目していきます。
 </p>
 </section>
 

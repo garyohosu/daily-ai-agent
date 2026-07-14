@@ -4,8 +4,8 @@ title: "日刊AIエージェント 2026-03-20"
 date: 2026-03-20
 categories: [AI, エージェント]
 tags: ["Claude Code", "Workflow", "Skills"]
-hero_summary: "Claude Code・Workflow・Skills を中心に 5 件のトピック"
-topic_count: 5
+hero_summary: "Claude Code・Workflow・Skills を中心に 4 件のトピック"
+topic_count: 4
 top_categories:
   - Claude Code
   - Workflow
@@ -18,12 +18,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Claude Code が主役の 5 本</h1>
+    <h1>Claude Code が主役の 4 本</h1>
     <p class="hero-sub">2026-03-20号 — Claude Code・Workflow・Skills を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-03-20 は、Claude Code・Workflow・Skills を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <p class="hero-lead">本日 2026-03-20 は、Claude Code・Workflow・Skills を中心に 4 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>5</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>4</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Claude Code</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -96,19 +96,6 @@ lead_indices: [0, 1, 2]
   <p class="story-summary">テスト定義でClaudeスキル精度56%→92%に向上</p>
   <div class="story-links"><a href="https://x.com/Hesamation/status/2034220679671714283" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Agent Skills 関連。実装者向けの具体的な情報。</div>
-</article>
-
-
-<article class="story-card brief">
-  <div class="story-meta">
-    <span class="story-rank">#5</span>
-    <span class="category-pill category--claude-code">Claude Code</span>
-    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
-  </div>
-  <h3>Claude Code企業ユースケース</h3>
-  <p class="story-summary">専門家が8週でアプリ構築、作業時間1/10に</p>
-  <div class="story-links"><a href="https://x.com/toddsaunders/status/2034243420147859716" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 </div>
 </section>

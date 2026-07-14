@@ -3,13 +3,13 @@ layout: post
 title: "日刊AIエージェント 2026-07-09"
 date: 2026-07-09
 categories: [AI, エージェント]
-tags: ["Skills", "VS Code", "AI Agents"]
-hero_summary: "Skills・VS Code・AI Agents を中心に 5 件のトピック"
-topic_count: 5
+tags: ["VS Code", "AI Agents", "Skills"]
+hero_summary: "VS Code・AI Agents・Skills を中心に 4 件のトピック"
+topic_count: 4
 top_categories:
-  - Skills
   - VS Code
   - AI Agents
+  - Skills
 high_confidence_count: 0
 source_name: "Grok / X"
 lead_indices: [0, 1, 2]
@@ -18,21 +18,21 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Skills が主役の 5 本</h1>
-    <p class="hero-sub">2026-07-09号 — Skills・VS Code・AI Agents を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-07-09 は、Skills・VS Code・AI Agents を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <h1>VS Code が主役の 4 本</h1>
+    <p class="hero-sub">2026-07-09号 — VS Code・AI Agents・Skills を中心に、実装に効く話題を編集</p>
+    <p class="hero-lead">本日 2026-07-09 は、VS Code・AI Agents・Skills を中心に 4 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>5</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>4</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
-    <div class="stat-card"><span>Main Category</span><strong>Skills</strong></div>
+    <div class="stat-card"><span>Main Category</span><strong>VS Code</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
   </div>
 </section>
 
 <section class="editor-overview">
   <h2>本日の総括</h2>
-  <p>本日は **Skills** 関連の話題が目立ちました。</p>
+  <p>本日は **VS Code** 関連の話題が目立ちました。</p>
 </section>
 
 
@@ -56,19 +56,6 @@ lead_indices: [0, 1, 2]
 <article class="story-card secondary">
   <div class="story-meta">
     <span class="story-rank">#2</span>
-    <span class="category-pill category--skills">Skills</span>
-    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
-  </div>
-  <h3>NVIDIA AI Agent Skills公開</h3>
-  <p class="story-summary">エージェントスキル再利用リポジトリをOSS公開、ワークフロー自動化に有用</p>
-  <div class="story-links"><a href="https://x.com/QCXINT_/status/2074925491593896177" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Agent Skills 関連。実装者向けの具体的な情報。</div>
-</article>
-
-
-<article class="story-card secondary">
-  <div class="story-meta">
-    <span class="story-rank">#3</span>
     <span class="category-pill category--other">VS Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -76,6 +63,19 @@ lead_indices: [0, 1, 2]
   <p class="story-summary">ブラウザエージェントツールと並列ワークフロー対応を強化</p>
   <div class="story-links"><a href="https://x.com/code/status/2074943855967821851" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>VS Code ユーザーに直接関係する情報。拡張・設定の参考に。</div>
+</article>
+
+
+<article class="story-card secondary">
+  <div class="story-meta">
+    <span class="story-rank">#3</span>
+    <span class="category-pill category--agents">AI Agents</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Grok 4.5 コーディング性能</h3>
+  <p class="story-summary">コスト効率高くエージェントタスクでClaude/GPT並み</p>
+  <div class="story-links"><a href="https://x.com/ArtificialAnlys/status/2074956948831924402" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>AI エージェント全般に影響しうるトピック。動向把握に。</div>
 </article>
 </div>
   </div>
@@ -89,19 +89,6 @@ lead_indices: [0, 1, 2]
 <article class="story-card brief">
   <div class="story-meta">
     <span class="story-rank">#4</span>
-    <span class="category-pill category--agents">AI Agents</span>
-    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
-  </div>
-  <h3>Grok 4.5 コーディング性能</h3>
-  <p class="story-summary">コスト効率高くエージェントタスクでClaude/GPT並み</p>
-  <div class="story-links"><a href="https://x.com/ArtificialAnlys/status/2074956948831924402" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>AI エージェント全般に影響しうるトピック。動向把握に。</div>
-</article>
-
-
-<article class="story-card brief">
-  <div class="story-meta">
-    <span class="story-rank">#5</span>
     <span class="category-pill category--skills">Skills</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -117,7 +104,7 @@ lead_indices: [0, 1, 2]
 <section class="closing-notes">
   <h2>本日のまとめ</h2>
   <p>本日の日刊AIエージェントは以上です。
-引き続き **Skills・VS Code・AI Agents** の動向に注目していきます。
+引き続き **VS Code・AI Agents・Skills** の動向に注目していきます。
 </p>
 </section>
 
