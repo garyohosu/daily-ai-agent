@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "日刊AIエージェント 2026-03-24"
-date: 2026-03-24
+title: "日刊AIエージェント 2026-07-13"
+date: 2026-07-13
 categories: [AI, エージェント]
-tags: ["Claude Code", "AI Agents"]
-hero_summary: "Claude Code・AI Agents を中心に 5 件のトピック"
+tags: ["Claude Code", "Skills"]
+hero_summary: "Claude Code・Skills を中心に 5 件のトピック"
 topic_count: 5
 top_categories:
   - Claude Code
-  - AI Agents
+  - Skills
 high_confidence_count: 0
 source_name: "Grok / X"
 lead_indices: [0, 1, 2]
@@ -18,8 +18,8 @@ lead_indices: [0, 1, 2]
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
     <h1>Claude Code が主役の 5 本</h1>
-    <p class="hero-sub">2026-03-24号 — Claude Code・AI Agents を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-03-24 は、Claude Code・AI Agents を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <p class="hero-sub">2026-07-13号 — Claude Code・Skills を中心に、実装に効く話題を編集</p>
+    <p class="hero-lead">本日 2026-07-13 は、Claude Code・Skills を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
     <div class="stat-card"><span>Topics</span><strong>5</strong></div>
@@ -45,9 +45,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Codeプロジェクト設定</h3>
-  <p class="story-summary">.claudeフォルダでスキル・エージェント構築。自動化基盤の完全ガイド</p>
-  <div class="story-links"><a href="https://x.com/akshay_pachaar/status/2035706568142893229" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>Claude Code Windows対応</h3>
+  <p class="story-summary">Windowsネイティブ対応でClaude Codeが使いやすくなった。npm installで即導入可能、日本開発者必見。</p>
+  <div class="story-links"><a href="https://x.com/nuits_jp/status/1943858161997557899" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 
@@ -55,26 +55,26 @@ lead_indices: [0, 1, 2]
 <article class="story-card secondary">
   <div class="story-meta">
     <span class="story-rank">#2</span>
-    <span class="category-pill category--agents">AI Agents</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>claude-peers多エージェント連携</h3>
-  <p class="story-summary">複数Claudeが相互メッセージ交換。ローカル自動調整ツール公開</p>
-  <div class="story-links"><a href="https://x.com/Suryanshti777/status/2035680591354470578" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>AI エージェント全般に影響しうるトピック。動向把握に。</div>
+  <h3>Claude Code 寝る前プロンプト</h3>
+  <p class="story-summary">膨大なタスクを一気に投げて寝るワークフロー。確認事項を最後に回す実践的Tips。</p>
+  <div class="story-links"><a href="https://x.com/kajikent/status/2075962953086427302" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 
 
 <article class="story-card secondary">
   <div class="story-meta">
     <span class="story-rank">#3</span>
-    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="category-pill category--skills">Skills</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Code記憶層追加</h3>
-  <p class="story-summary">Lettaオープンソースでセッション記憶自動注入。背景エージェント無料</p>
-  <div class="story-links"><a href="https://x.com/charliejhills/status/2035999601954865229" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+  <h3>Agent Skills Obsidian</h3>
+  <p class="story-summary">Obsidian創業者公開のClaude Codeスキル。ファイル操作を人間並みにこなすMITライセンス実用例。</p>
+  <div class="story-links"><a href="https://x.com/chewadot/status/2076107957277008100" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Agent Skills 関連。実装者向けの具体的な情報。</div>
 </article>
 </div>
   </div>
@@ -88,13 +88,13 @@ lead_indices: [0, 1, 2]
 <article class="story-card brief">
   <div class="story-meta">
     <span class="story-rank">#4</span>
-    <span class="category-pill category--agents">AI Agents</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude求職エージェント活用</h3>
-  <p class="story-summary">12スキルで516求人評価・66応募自動。就活ワークフロー変革事例</p>
-  <div class="story-links"><a href="https://x.com/om_patel5/status/2035880075212493193" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>AI エージェント全般に影響しうるトピック。動向把握に。</div>
+  <h3>Claude Code LP量産</h3>
+  <p class="story-summary">企業内toB LPをClaude Code+Designでデザイナー以外が量産。仕組み化の企業活用事例。</p>
+  <div class="story-links"><a href="https://x.com/kenichiota0711/status/2075945341380411443" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 
 
@@ -104,9 +104,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>非エンジニアClaude CodeTips</h3>
-  <p class="story-summary">日本語具体要件記述で高精度開発。小さく作って育てる3ポイント</p>
-  <div class="story-links"><a href="https://x.com/gami0507/status/2035597457040834845" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>Claude Code improve-animations</h3>
+  <p class="story-summary">新Agent Skillでアニメーション改善を自動診断 ...</p>
+  <div class="story-links"><a href="https://x.com/claudecode84/status/2076173561350520865" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 </div>
@@ -116,7 +116,7 @@ lead_indices: [0, 1, 2]
 <section class="closing-notes">
   <h2>本日のまとめ</h2>
   <p>本日の日刊AIエージェントは以上です。
-引き続き **Claude Code・AI Agents** の動向に注目していきます。
+引き続き **Claude Code・Skills** の動向に注目していきます。
 </p>
 </section>
 

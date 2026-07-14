@@ -4,8 +4,8 @@ title: "日刊AIエージェント 2026-03-16"
 date: 2026-03-16
 categories: [AI, エージェント]
 tags: ["Claude Code", "Skills", "Enterprise"]
-hero_summary: "Claude Code・Skills・Enterprise を中心に 3 件のトピック"
-topic_count: 3
+hero_summary: "Claude Code・Skills・Enterprise を中心に 5 件のトピック"
+topic_count: 5
 top_categories:
   - Claude Code
   - Skills
@@ -18,12 +18,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Claude Code が主役の 3 本</h1>
+    <h1>Claude Code が主役の 5 本</h1>
     <p class="hero-sub">2026-03-16号 — Claude Code・Skills・Enterprise を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-03-16 は、Claude Code・Skills・Enterprise を中心に 3 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <p class="hero-lead">本日 2026-03-16 は、Claude Code・Skills・Enterprise を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>3</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>5</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Claude Code</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -46,9 +46,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Code Starter Kit更新</h3>
-  <p class="story-summary">AGENTS.md自動生成/researchコマンド追加。日本語開発者向けエージェント生産性11項目強化</p>
-  <div class="story-links"><a href="https://x.com/sudachikawaii/status/2032995804315820518" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>Claude Code実践ガイド</h3>
+  <p class="story-summary">ボイスメモ10分文字起こし後計画モードで質問連発。日本語コーディングエージェント活用Tips</p>
+  <div class="story-links"><a href="https://x.com/makaneko_AI/status/2033008131756986709" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 
@@ -56,6 +56,39 @@ lead_indices: [0, 1, 2]
 <article class="story-card secondary">
   <div class="story-meta">
     <span class="story-rank">#2</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Claude Codeアプリ開発術</h3>
+  <p class="story-summary">Claude Code+GPT-5で0→App Store展開。開発コスト98kドル→無料ワークフロー公開</p>
+  <div class="story-links"><a href="https://x.com/KanikaBK/status/2033143178057203810" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+</article>
+
+
+<article class="story-card secondary">
+  <div class="story-meta">
+    <span class="story-rank">#3</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Claude Code Starter Kit更新</h3>
+  <p class="story-summary">AGENTS.md自動生成/researchコマンド追加。日本語開発者向けエージェント生産性11項目強化</p>
+  <div class="story-links"><a href="https://x.com/sudachikawaii/status/2032995804315820518" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+</article>
+</div>
+  </div>
+</section>
+
+
+
+<section class="news-briefs">
+  <h2>News Briefs</h2>
+  <div class="brief-grid">
+<article class="story-card brief">
+  <div class="story-meta">
+    <span class="story-rank">#4</span>
     <span class="category-pill category--skills">Skills</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -66,9 +99,9 @@ lead_indices: [0, 1, 2]
 </article>
 
 
-<article class="story-card secondary">
+<article class="story-card brief">
   <div class="story-meta">
-    <span class="story-rank">#3</span>
+    <span class="story-rank">#5</span>
     <span class="category-pill category--enterprise">Enterprise</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -78,10 +111,7 @@ lead_indices: [0, 1, 2]
   <div class="editor-note"><span>Editor's Note</span>企業導入・業務活用を検討中の方に参考になる事例。</div>
 </article>
 </div>
-  </div>
 </section>
-
-
 
 
 <section class="closing-notes">

@@ -3,10 +3,11 @@ layout: post
 title: "日刊AIエージェント 2026-04-08"
 date: 2026-04-08
 categories: [AI, エージェント]
-tags: ["Codex", "AI Agents"]
-hero_summary: "Codex・AI Agents を中心に 3 件のトピック"
-topic_count: 3
+tags: ["Claude Code", "Codex", "AI Agents"]
+hero_summary: "Claude Code・Codex・AI Agents を中心に 5 件のトピック"
+topic_count: 5
 top_categories:
+  - Claude Code
   - Codex
   - AI Agents
 high_confidence_count: 0
@@ -17,21 +18,21 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Codex が主役の 3 本</h1>
-    <p class="hero-sub">2026-04-08号 — Codex・AI Agents を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-04-08 は、Codex・AI Agents を中心に 3 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <h1>Claude Code が主役の 5 本</h1>
+    <p class="hero-sub">2026-04-08号 — Claude Code・Codex・AI Agents を中心に、実装に効く話題を編集</p>
+    <p class="hero-lead">本日 2026-04-08 は、Claude Code・Codex・AI Agents を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>3</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>5</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
-    <div class="stat-card"><span>Main Category</span><strong>Codex</strong></div>
+    <div class="stat-card"><span>Main Category</span><strong>Claude Code</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
   </div>
 </section>
 
 <section class="editor-overview">
   <h2>本日の総括</h2>
-  <p>本日は **Codex** 関連の話題が目立ちました。</p>
+  <p>本日は **Claude Code** 関連の話題が目立ちました。</p>
 </section>
 
 
@@ -42,6 +43,32 @@ lead_indices: [0, 1, 2]
 <article class="story-card lead">
   <div class="story-meta">
     <span class="story-rank">#1</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Claude Code X接続</h3>
+  <p class="story-summary">Claude Codeから1行コマンドでX投稿・リサーチ完結。MCPサーバー公式リリース</p>
+  <div class="story-links"><a href="https://x.com/MakeAI_CEO/status/2041363823698014432" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+</article>
+
+    <div class="secondary-grid">
+<article class="story-card secondary">
+  <div class="story-meta">
+    <span class="story-rank">#2</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Claude Code使用改善</h3>
+  <p class="story-summary">Anthropic担当者トークン問題デバッグ募集。公式スレッド</p>
+  <div class="story-links"><a href="https://x.com/trq212/status/2041252127943877068" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+</article>
+
+
+<article class="story-card secondary">
+  <div class="story-meta">
+    <span class="story-rank">#3</span>
     <span class="category-pill category--other">Other</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -50,11 +77,18 @@ lead_indices: [0, 1, 2]
   <div class="story-links"><a href="https://x.com/7_eito_7/status/2041139541202047468" target="_blank" rel="noopener">Xポスト</a></div>
   
 </article>
+</div>
+  </div>
+</section>
 
-    <div class="secondary-grid">
-<article class="story-card secondary">
+
+
+<section class="news-briefs">
+  <h2>News Briefs</h2>
+  <div class="brief-grid">
+<article class="story-card brief">
   <div class="story-meta">
-    <span class="story-rank">#2</span>
+    <span class="story-rank">#4</span>
     <span class="category-pill category--codex">Codex</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -65,9 +99,9 @@ lead_indices: [0, 1, 2]
 </article>
 
 
-<article class="story-card secondary">
+<article class="story-card brief">
   <div class="story-meta">
-    <span class="story-rank">#3</span>
+    <span class="story-rank">#5</span>
     <span class="category-pill category--agents">AI Agents</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -77,16 +111,13 @@ lead_indices: [0, 1, 2]
   <div class="editor-note"><span>Editor's Note</span>AI エージェント全般に影響しうるトピック。動向把握に。</div>
 </article>
 </div>
-  </div>
 </section>
-
-
 
 
 <section class="closing-notes">
   <h2>本日のまとめ</h2>
   <p>本日の日刊AIエージェントは以上です。
-引き続き **Codex・AI Agents** の動向に注目していきます。
+引き続き **Claude Code・Codex・AI Agents** の動向に注目していきます。
 </p>
 </section>
 

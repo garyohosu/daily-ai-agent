@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "日刊AIエージェント 2026-04-10"
-date: 2026-04-10
+title: "日刊AIエージェント 2026-07-12"
+date: 2026-07-12
 categories: [AI, エージェント]
-tags: ["Claude Code", "Codex", "Skills"]
-hero_summary: "Claude Code・Codex・Skills を中心に 4 件のトピック"
+tags: ["Skills", "Workflow", "Claude Code"]
+hero_summary: "Skills・Workflow・Claude Code を中心に 4 件のトピック"
 topic_count: 4
 top_categories:
-  - Claude Code
-  - Codex
   - Skills
+  - Workflow
+  - Claude Code
 high_confidence_count: 0
 source_name: "Grok / X"
 lead_indices: [0, 1, 2]
@@ -18,21 +18,21 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Claude Code が主役の 4 本</h1>
-    <p class="hero-sub">2026-04-10号 — Claude Code・Codex・Skills を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-04-10 は、Claude Code・Codex・Skills を中心に 4 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <h1>Skills が主役の 4 本</h1>
+    <p class="hero-sub">2026-07-12号 — Skills・Workflow・Claude Code を中心に、実装に効く話題を編集</p>
+    <p class="hero-lead">本日 2026-07-12 は、Skills・Workflow・Claude Code を中心に 4 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
     <div class="stat-card"><span>Topics</span><strong>4</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
-    <div class="stat-card"><span>Main Category</span><strong>Claude Code</strong></div>
+    <div class="stat-card"><span>Main Category</span><strong>Skills</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
   </div>
 </section>
 
 <section class="editor-overview">
   <h2>本日の総括</h2>
-  <p>本日は **Claude Code** 関連の話題が目立ちました。</p>
+  <p>本日は **Skills** 関連の話題が目立ちました。</p>
 </section>
 
 
@@ -43,26 +43,26 @@ lead_indices: [0, 1, 2]
 <article class="story-card lead">
   <div class="story-meta">
     <span class="story-rank">#1</span>
-    <span class="category-pill category--codex">Codex</span>
+    <span class="category-pill category--other">Workflow</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Codex Pro tier発表</h3>
-  <p class="story-summary">$100新プランで使用量5倍。企業高負荷Codexセッション強化</p>
-  <div class="story-links"><a href="https://x.com/OpenAI/status/2042295688323875316" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Codex 関連。他エージェントとの比較検討に役立つかもしれない。</div>
+  <h3>Claude.md活用術</h3>
+  <p class="story-summary">KarpathyチームのClaude.mdをワークフローに導入で推論が劇的に向上。</p>
+  <div class="story-links"><a href="https://x.com/cyrilXBT/status/2075760989090246864" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>開発ワークフロー改善のヒントになりうる話題。</div>
 </article>
 
     <div class="secondary-grid">
 <article class="story-card secondary">
   <div class="story-meta">
     <span class="story-rank">#2</span>
-    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="category-pill category--skills">Skills</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Code Web→アプリ化</h3>
-  <p class="story-summary">URL入力だけでClaude Opusがモバイルアプリを自動設計・公開</p>
-  <div class="story-links"><a href="https://x.com/chddaniel/status/2041902198305783888" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+  <h3>Obsidian CEOスキル公開</h3>
+  <p class="story-summary">Obsidian CEOがClaude Code用skills公開、markdown/Canvas対応でAgent Skills互換。</p>
+  <div class="story-links"><a href="https://x.com/piske_cc/status/2075896408859922654" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Agent Skills 関連。実装者向けの具体的な情報。</div>
 </article>
 
 
@@ -72,9 +72,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>楽天Claude Code企業事例</h3>
-  <p class="story-summary">開発時間79%短縮・99.9%精度。Managed Agents1週間展開</p>
-  <div class="story-links"><a href="https://x.com/shota7180/status/2042075125164761429" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>Claude Codeプロンプト講座</h3>
+  <p class="story-summary">Claude Code開発者が28分動画で実践プロンプト技公開、CLAUDE.md活用法。</p>
+  <div class="story-links"><a href="https://x.com/KhusbooT14835/status/2075795864975757586" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 </div>
@@ -92,9 +92,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--skills">Skills</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Agent Skills新DB代替</h3>
-  <p class="story-summary">InsforgeでPostgres+IA統合。無料枠豊富でAgent活用</p>
-  <div class="story-links"><a href="https://x.com/midudev/status/2042240804253532397" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>企業AIエージェント集約</h3>
+  <p class="story-summary">Obsidian CEOがClaude Code用skills公開、markdown/Canvas対応でAgent Skills互換。</p>
+  <div class="story-links"><a href="https://x.com/piske_cc/status/2075896408859922654" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Agent Skills 関連。実装者向けの具体的な情報。</div>
 </article>
 </div>
@@ -104,7 +104,7 @@ lead_indices: [0, 1, 2]
 <section class="closing-notes">
   <h2>本日のまとめ</h2>
   <p>本日の日刊AIエージェントは以上です。
-引き続き **Claude Code・Codex・Skills** の動向に注目していきます。
+引き続き **Skills・Workflow・Claude Code** の動向に注目していきます。
 </p>
 </section>
 

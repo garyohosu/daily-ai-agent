@@ -4,8 +4,8 @@ title: "日刊AIエージェント 2026-03-21"
 date: 2026-03-21
 categories: [AI, エージェント]
 tags: ["Codex", "Claude Code", "Prompt Engineering"]
-hero_summary: "Codex・Claude Code・Prompt Engineering を中心に 4 件のトピック"
-topic_count: 4
+hero_summary: "Codex・Claude Code・Prompt Engineering を中心に 5 件のトピック"
+topic_count: 5
 top_categories:
   - Codex
   - Claude Code
@@ -18,12 +18,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Codex が主役の 4 本</h1>
+    <h1>Codex が主役の 5 本</h1>
     <p class="hero-sub">2026-03-21号 — Codex・Claude Code・Prompt Engineering を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-03-21 は、Codex・Claude Code・Prompt Engineering を中心に 4 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <p class="hero-lead">本日 2026-03-21 は、Codex・Claude Code・Prompt Engineering を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>4</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>5</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Codex</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -96,6 +96,19 @@ lead_indices: [0, 1, 2]
   <p class="story-summary">同一プロンプトでスライド生成比較。日本開発者向け実践Tips</p>
   <div class="story-links"><a href="https://x.com/shota7180/status/2034848414727643460" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>プロンプト設計の改善ヒントになりうる話題。</div>
+</article>
+
+
+<article class="story-card brief">
+  <div class="story-meta">
+    <span class="story-rank">#5</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Claude Code4層活用Tips</h3>
+  <p class="story-summary">CLAUDE.md・Skills・Hooks・Agentsでシステム構築。ワークフロー変革</p>
+  <div class="story-links"><a href="https://x.com/PrakashS720/status/2034507422434255268" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 </div>
 </section>

@@ -4,8 +4,8 @@ title: "日刊AIエージェント 2026-04-14"
 date: 2026-04-14
 categories: [AI, エージェント]
 tags: ["Claude Code"]
-hero_summary: "Claude Code を中心に 3 件のトピック"
-topic_count: 3
+hero_summary: "Claude Code を中心に 5 件のトピック"
+topic_count: 5
 top_categories:
   - Claude Code
 high_confidence_count: 0
@@ -16,12 +16,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Claude Code が主役の 3 本</h1>
+    <h1>Claude Code が主役の 5 本</h1>
     <p class="hero-sub">2026-04-14号 — Claude Code を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-04-14 は、Claude Code を中心に 3 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <p class="hero-lead">本日 2026-04-14 は、Claude Code を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>3</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>5</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Claude Code</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -70,9 +70,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Code完全無料ローカル実行</h3>
-  <p class="story-summary">API不要・速度制限なしで自機100%実行の手順Tips</p>
-  <div class="story-links"><a href="https://x.com/igus_ai/status/2043304659377340516" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>Claude Codeエージェントハーネス自作</h3>
+  <p class="story-summary">動画で構築手順解説、開発者向け実践ガイド</p>
+  <div class="story-links"><a href="https://x.com/theo/status/2043611205856837680" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 </div>
@@ -80,6 +80,36 @@ lead_indices: [0, 1, 2]
 </section>
 
 
+
+<section class="news-briefs">
+  <h2>News Briefs</h2>
+  <div class="brief-grid">
+<article class="story-card brief">
+  <div class="story-meta">
+    <span class="story-rank">#4</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Claude Code SEOエージェント構築</h3>
+  <p class="story-summary">Ahrefs代替の自動キーワード分析・コンテンツ生成ワークフロー</p>
+  <div class="story-links"><a href="https://x.com/mikefutia/status/2043357536448041327" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+</article>
+
+
+<article class="story-card brief">
+  <div class="story-meta">
+    <span class="story-rank">#5</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Claude Code完全無料ローカル実行</h3>
+  <p class="story-summary">API不要・速度制限なしで自機100%実行の手順Tips</p>
+  <div class="story-links"><a href="https://x.com/igus_ai/status/2043304659377340516" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+</article>
+</div>
+</section>
 
 
 <section class="closing-notes">

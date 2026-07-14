@@ -3,12 +3,13 @@ layout: post
 title: "日刊AIエージェント 2026-03-15"
 date: 2026-03-15
 categories: [AI, エージェント]
-tags: ["Workflow", "Claude Code"]
-hero_summary: "Workflow・Claude Code を中心に 2 件のトピック"
-topic_count: 2
+tags: ["Workflow", "Claude Code", "Enterprise"]
+hero_summary: "Workflow・Claude Code・Enterprise を中心に 3 件のトピック"
+topic_count: 3
 top_categories:
   - Workflow
   - Claude Code
+  - Enterprise
 high_confidence_count: 0
 source_name: "Grok / X"
 lead_indices: [0, 1, 2]
@@ -17,12 +18,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Workflow が主役の 2 本</h1>
-    <p class="hero-sub">2026-03-15号 — Workflow・Claude Code を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-03-15 は、Workflow・Claude Code を中心に 2 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <h1>Workflow が主役の 3 本</h1>
+    <p class="hero-sub">2026-03-15号 — Workflow・Claude Code・Enterprise を中心に、実装に効く話題を編集</p>
+    <p class="hero-lead">本日 2026-03-15 は、Workflow・Claude Code・Enterprise を中心に 3 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>2</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>3</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Workflow</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -63,6 +64,19 @@ lead_indices: [0, 1, 2]
   <div class="story-links"><a href="https://x.com/MissCat_AI/status/2032767952068686040" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
+
+
+<article class="story-card secondary">
+  <div class="story-meta">
+    <span class="story-rank">#3</span>
+    <span class="category-pill category--enterprise">Enterprise</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>企業内AIエージェント</h3>
+  <p class="story-summary">非コード業務もClaude/Codexで大幅変革提案</p>
+  <div class="story-links"><a href="https://x.com/naoya_ito/status/2032587963566272982" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>企業導入・業務活用を検討中の方に参考になる事例。</div>
+</article>
 </div>
   </div>
 </section>
@@ -73,7 +87,7 @@ lead_indices: [0, 1, 2]
 <section class="closing-notes">
   <h2>本日のまとめ</h2>
   <p>本日の日刊AIエージェントは以上です。
-引き続き **Workflow・Claude Code** の動向に注目していきます。
+引き続き **Workflow・Claude Code・Enterprise** の動向に注目していきます。
 </p>
 </section>
 

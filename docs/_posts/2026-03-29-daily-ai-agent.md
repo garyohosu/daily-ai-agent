@@ -4,8 +4,8 @@ title: "日刊AIエージェント 2026-03-29"
 date: 2026-03-29
 categories: [AI, エージェント]
 tags: ["Claude Code", "AI Agents"]
-hero_summary: "Claude Code・AI Agents を中心に 4 件のトピック"
-topic_count: 4
+hero_summary: "Claude Code・AI Agents を中心に 5 件のトピック"
+topic_count: 5
 top_categories:
   - Claude Code
   - AI Agents
@@ -17,12 +17,12 @@ lead_indices: [0, 1, 2]
 <section class="mag-hero">
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
-    <h1>Claude Code が主役の 4 本</h1>
+    <h1>Claude Code が主役の 5 本</h1>
     <p class="hero-sub">2026-03-29号 — Claude Code・AI Agents を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-03-29 は、Claude Code・AI Agents を中心に 4 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <p class="hero-lead">本日 2026-03-29 は、Claude Code・AI Agents を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
-    <div class="stat-card"><span>Topics</span><strong>4</strong></div>
+    <div class="stat-card"><span>Topics</span><strong>5</strong></div>
     <div class="stat-card"><span>High Confidence</span><strong>0</strong></div>
     <div class="stat-card"><span>Main Category</span><strong>Claude Code</strong></div>
     <div class="stat-card"><span>Source</span><strong>Grok / X</strong></div>
@@ -45,9 +45,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Codeリポジトリ構造化術</h3>
-  <p class="story-summary">CLAUDE.mdとskills/hooksでAIを本格開発者に変えるTips</p>
-  <div class="story-links"><a href="https://x.com/DAIEvolutionHub/status/2037966115696193670" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>Claude Code Canva操作Tips</h3>
+  <p class="story-summary">スライド作成を指示だけで数分完了、作業80%カットの実践ガイド</p>
+  <div class="story-links"><a href="https://x.com/okuyama_ai_/status/2037485188670972155" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 
@@ -55,6 +55,19 @@ lead_indices: [0, 1, 2]
 <article class="story-card secondary">
   <div class="story-meta">
     <span class="story-rank">#2</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Claude Codeリポジトリ構造化術</h3>
+  <p class="story-summary">CLAUDE.mdとskills/hooksでAIを本格開発者に変えるTips</p>
+  <div class="story-links"><a href="https://x.com/DAIEvolutionHub/status/2037966115696193670" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+</article>
+
+
+<article class="story-card secondary">
+  <div class="story-meta">
+    <span class="story-rank">#3</span>
     <span class="category-pill category--agents">AI Agents</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
@@ -62,19 +75,6 @@ lead_indices: [0, 1, 2]
   <p class="story-summary">GitHub公開のエージェントスキルでデザイン業務自動化</p>
   <div class="story-links"><a href="https://x.com/tom_doerr/status/2037896117438812539" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>AI エージェント全般に影響しうるトピック。動向把握に。</div>
-</article>
-
-
-<article class="story-card secondary">
-  <div class="story-meta">
-    <span class="story-rank">#3</span>
-    <span class="category-pill category--claude-code">Claude Code</span>
-    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
-  </div>
-  <h3>Claude Codeセキュリティ6サブエージェント</h3>
-  <p class="story-summary">攻撃計画・レポートまで自動化するpentest-ai実務活用</p>
-  <div class="story-links"><a href="https://x.com/Dinosn/status/2037954978166321503" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 </div>
   </div>
@@ -88,6 +88,19 @@ lead_indices: [0, 1, 2]
 <article class="story-card brief">
   <div class="story-meta">
     <span class="story-rank">#4</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
+  </div>
+  <h3>Claude Codeセキュリティ6サブエージェント</h3>
+  <p class="story-summary">攻撃計画・レポートまで自動化するpentest-ai実務活用</p>
+  <div class="story-links"><a href="https://x.com/Dinosn/status/2037954978166321503" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+</article>
+
+
+<article class="story-card brief">
+  <div class="story-meta">
+    <span class="story-rank">#5</span>
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>

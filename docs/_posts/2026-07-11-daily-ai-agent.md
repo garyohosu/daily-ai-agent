@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "日刊AIエージェント 2026-04-03"
-date: 2026-04-03
+title: "日刊AIエージェント 2026-07-11"
+date: 2026-07-11
 categories: [AI, エージェント]
-tags: ["Claude Code", "AI Agents", "Codex"]
-hero_summary: "Claude Code・AI Agents・Codex を中心に 5 件のトピック"
+tags: ["Claude Code", "Skills", "AI Agents", "Enterprise"]
+hero_summary: "Claude Code・Skills・AI Agents を中心に 5 件のトピック"
 topic_count: 5
 top_categories:
   - Claude Code
+  - Skills
   - AI Agents
-  - Codex
 high_confidence_count: 0
 source_name: "Grok / X"
 lead_indices: [0, 1, 2]
@@ -19,8 +19,8 @@ lead_indices: [0, 1, 2]
   <div class="hero-main">
     <p class="hero-kicker">本日のカバーストーリー</p>
     <h1>Claude Code が主役の 5 本</h1>
-    <p class="hero-sub">2026-04-03号 — Claude Code・AI Agents・Codex を中心に、実装に効く話題を編集</p>
-    <p class="hero-lead">本日 2026-04-03 は、Claude Code・AI Agents・Codex を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
+    <p class="hero-sub">2026-07-11号 — Claude Code・Skills・AI Agents を中心に、実装に効く話題を編集</p>
+    <p class="hero-lead">本日 2026-07-11 は、Claude Code・Skills・AI Agents を中心に 5 件のトピックをお届けします。Grok が X 上から収集した最新の AI エージェント関連情報です。</p>
   </div>
   <div class="hero-stats">
     <div class="stat-card"><span>Topics</span><strong>5</strong></div>
@@ -46,9 +46,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Code 2.1.90リリース</h3>
-  <p class="story-summary">/powerupレッスン追加・Auto mode境界遵守強化など19変更</p>
-  <div class="story-links"><a href="https://x.com/ClaudeCodeLog/status/2039493041979847023" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>Claude Code ブラウザ機能</h3>
+  <p class="story-summary">Claude Desktopにサンドボックスブラウザ追加。ドキュメント閲覧や自作アプリ検証が可能に。</p>
+  <div class="story-links"><a href="https://x.com/ClaudeDevs/status/2075635283211772279" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 
@@ -56,13 +56,13 @@ lead_indices: [0, 1, 2]
 <article class="story-card secondary">
   <div class="story-meta">
     <span class="story-rank">#2</span>
-    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="category-pill category--skills">Skills</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Codeローカルvs本体比較</h3>
-  <p class="story-summary">30BモデルでTODOアプリ55秒完成、本体との速度・質比較</p>
-  <div class="story-links"><a href="https://x.com/SuguruKun_ai/status/2039138404286484915" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+  <h3>nature-skillsで研究支援</h3>
+  <p class="story-summary">AIコーディングエージェントに論文作成・図表生成スキル17種追加。Claude Code対応で2.7万スター。</p>
+  <div class="story-links"><a href="https://x.com/chenzeling4/status/2075671152832462956" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Agent Skills 関連。実装者向けの具体的な情報。</div>
 </article>
 
 
@@ -72,9 +72,9 @@ lead_indices: [0, 1, 2]
     <span class="category-pill category--agents">AI Agents</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Supabase AIエージェント用SSH公開</h3>
-  <p class="story-summary">ドキュメントを仮想FS化しgrep/catでエージェント活用</p>
-  <div class="story-links"><a href="https://x.com/supabase/status/2039372179943338071" target="_blank" rel="noopener">Xポスト</a></div>
+  <h3>検証ループの実践</h3>
+  <p class="story-summary">OpenAI/Anthropicエンジニアが推奨するループでエージェントの出力信頼性向上。テスト通過まで自動反復。</p>
+  <div class="story-links"><a href="https://x.com/Lolli_love_y0u/status/2075664509323055367" target="_blank" rel="noopener">Xポスト</a></div>
   <div class="editor-note"><span>Editor's Note</span>AI エージェント全般に影響しうるトピック。動向把握に。</div>
 </article>
 </div>
@@ -89,26 +89,26 @@ lead_indices: [0, 1, 2]
 <article class="story-card brief">
   <div class="story-meta">
     <span class="story-rank">#4</span>
-    <span class="category-pill category--codex">Codex</span>
+    <span class="category-pill category--claude-code">Claude Code</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Codex企業向け従量課金開始</h3>
-  <p class="story-summary">Business/Enterpriseで固定席不要の柔軟料金導入</p>
-  <div class="story-links"><a href="https://x.com/OpenAIDevs/status/2039794643513295328" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Codex 関連。他エージェントとの比較検討に役立つかもしれない。</div>
+  <h3>Claude Code in-app browser</h3>
+  <p class="story-summary">デスクトップでClaudeがサイト直接操作・デバッグ。Chrome拡張代替として高評価。</p>
+  <div class="story-links"><a href="https://x.com/_catwu/status/2075647324790112304" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
 </article>
 
 
 <article class="story-card brief">
   <div class="story-meta">
     <span class="story-rank">#5</span>
-    <span class="category-pill category--claude-code">Claude Code</span>
+    <span class="category-pill category--enterprise">Enterprise</span>
     <span class="confidence-pill confidence--unknown">信頼度 未確認</span>
   </div>
-  <h3>Claude Code初期セットアップ10選</h3>
-  <p class="story-summary">便利ツールから業務中核へ変える必須準備解説</p>
-  <div class="story-links"><a href="https://x.com/keitowebai/status/2039159291513606357" target="_blank" rel="noopener">Xポスト</a></div>
-  <div class="editor-note"><span>Editor's Note</span>Claude Code ユーザー必見。実装・ワークフロー改善に直結する情報。</div>
+  <h3>Dify v1.6 MCP統合</h3>
+  <p class="story-summary">エージェントが外部サービス連携強化。日本企業AI推進事例に有用なワークフロー拡張。 ...</p>
+  <div class="story-links"><a href="https://x.com/DifyJapan/status/1943258211693531612" target="_blank" rel="noopener">Xポスト</a></div>
+  <div class="editor-note"><span>Editor's Note</span>企業導入・業務活用を検討中の方に参考になる事例。</div>
 </article>
 </div>
 </section>
@@ -117,7 +117,7 @@ lead_indices: [0, 1, 2]
 <section class="closing-notes">
   <h2>本日のまとめ</h2>
   <p>本日の日刊AIエージェントは以上です。
-引き続き **Claude Code・AI Agents・Codex** の動向に注目していきます。
+引き続き **Claude Code・Skills・AI Agents・Enterprise** の動向に注目していきます。
 </p>
 </section>
 
