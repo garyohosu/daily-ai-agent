@@ -1,6 +1,16 @@
 {
   "articles": [
     {
+      "date": "2026-07-16",
+      "title": "日刊AIエージェント 2026-07-16",
+      "url": "https://garyohosu.github.io/daily-ai-agent/2026-07-16-daily-ai-agent/",
+      "tags": [
+        "AI Agents",
+        "Skills"
+      ],
+      "file": "2026-07-16-daily-ai-agent.md"
+    },
+    {
       "date": "2026-07-15",
       "title": "日刊AIエージェント 2026-07-15",
       "url": "https://garyohosu.github.io/daily-ai-agent/2026-07-15-daily-ai-agent/",
@@ -1259,5 +1269,5 @@
       "file": "2026-03-12-daily-ai-agent.md"
     }
   ],
-  "updated_at": "2026-07-15T07:30:19.693106+09:00"
+  "updated_at": "2026-07-16T07:30:22.755150+09:00"
 }
