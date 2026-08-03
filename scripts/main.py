@@ -95,6 +95,11 @@ def main() -> None:
     parser.add_argument("--fetch-max-results", type=int, default=10, help="Gmail 検索クエリごとの最大取得件数")
     parser.add_argument("--fetch-all-history", action="store_true", help="Gmail を過去全履歴から取得する")
     parser.add_argument("--rebuild-dedupe-index", action="store_true", help="dedupe index を削除して全件再構築する")
+    parser.add_argument(
+        "--allow-interactive-auth",
+        action="store_true",
+        help="token.json が無い場合に fetch_gmail で対話 OAuth を許可する",
+    )
     args = parser.parse_args()
 
     logger.info("=" * 60)
@@ -121,6 +126,8 @@ def main() -> None:
         ]
         if args.fetch_all_history:
             fetch_args.append("--all-history")
+        if args.allow_interactive_auth:
+            fetch_args.append("--allow-interactive-auth")
         ok = run_phase("fetch_gmail", lambda: fetch_gmail.main(fetch_args))
         if not ok:
             logger.error("fetch_gmail 失敗。以降のフェーズをスキップします")

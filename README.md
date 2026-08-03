@@ -37,7 +37,13 @@ pip install beautifulsoup4 google-auth google-auth-oauthlib google-api-python-cl
 
 1. Google Cloud Console で Gmail API を有効化
 2. OAuth 2.0 クライアント ID を作成し `credentials.json` をリポジトリルートに配置
-3. 初回実行時にブラウザで認証 → `token.json` が自動生成される（以降は不要）
+3. 初回または `token.json` 失効時は、対話端末で次を実行してブラウザ認証する
+
+```bash
+python scripts/main.py --allow-interactive-auth
+```
+
+`token.json` はリポジトリルートに生成される。OpenClaw Cron などの非対話実行では OAuth 認証を開始せず、再認証が必要な場合は即時に失敗させる。
 
 ---
 
@@ -77,7 +83,7 @@ OpenClaw の Cron 設定に以下を登録する。
 
 **メッセージ（コピー用）**:
 ```
-作業ディレクトリ /home/garyo/daily-ai-agent で . .venv312/bin/activate && python scripts/main.py を実行してください。失敗時はエラーログ logs/main-YYYY-MM-DD.log を確認して報告してください。
+作業ディレクトリ /home/garyo/daily-ai-agent で . .venv312/bin/activate && python scripts/main.py を実行してください。失敗時はエラーログ logs/main-YYYY-MM-DD.log を確認して報告してください。Gmail の再認証が必要な場合は cron では復旧できないため、対話端末で python scripts/main.py --allow-interactive-auth を一度実行してください。
 ```
 
 ### 実行タイミングの根拠

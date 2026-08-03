@@ -14,6 +14,7 @@ import argparse
 import json
 import logging
 import re
+import sys
 import time
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
@@ -77,7 +78,11 @@ logger = setup_logging()
 
 
 # ---- 認証 ----------------------------------------------------------------
-def load_gmail_service():
+def interactive_auth_allowed(allow_interactive_auth: bool) -> bool:
+    return allow_interactive_auth and sys.stdin.isatty()
+
+
+def load_gmail_service(*, allow_interactive_auth: bool = False):
     creds = None
 
     if TOKEN_PATH.exists():
@@ -98,6 +103,12 @@ def load_gmail_service():
         if not creds or not creds.valid:
             if not CREDENTIALS_PATH.exists():
                 raise FileNotFoundError(f"credentials.json が見つかりません: {CREDENTIALS_PATH.resolve()}")
+            if not allow_interactive_auth:
+                raise RuntimeError(
+                    "Gmail の再認証が必要です。cron では対話認証できないため中断します。"
+                    " 手動で `python scripts/main.py --allow-interactive-auth` を一度実行して"
+                    " token.json を再生成してください。"
+                )
             flow = InstalledAppFlow.from_client_secrets_file(str(CREDENTIALS_PATH), SCOPES)
             creds = flow.run_local_server(
                 port=0,
@@ -309,6 +320,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--days-back", type=int, default=DEFAULT_DAYS_BACK, help="検索対象の日数。既定は 7 日")
     parser.add_argument("--all-history", action="store_true", help="過去全履歴を検索する")
     parser.add_argument("--max-results", type=int, default=DEFAULT_MAX_RESULTS, help="各検索クエリの最大取得件数")
+    parser.add_argument(
+        "--allow-interactive-auth",
+        action="store_true",
+        help="token.json が無い場合に対話 OAuth を許可する。cron では付けない",
+    )
     return parser.parse_args(argv)
 
 
@@ -322,7 +338,7 @@ def main(argv: list[str] | None = None) -> None:
 
     # 認証
     try:
-        service = load_gmail_service()
+        service = load_gmail_service(allow_interactive_auth=interactive_auth_allowed(args.allow_interactive_auth))
     except Exception as e:
         logger.error(f"Gmail 認証失敗: {e}")
         raise SystemExit(1)
